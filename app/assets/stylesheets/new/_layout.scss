@@ -1,4 +1,27 @@
 body {
+  margin-top: 0px;
+}
+header {
+  border-bottom: 1px solid $nu-yellow;
+  margin-bottom: 1em;
+  position: fixed;
+  display: block;
+  width: 100%;
+  background-color: rgba(#fff, 0.75);
+
+  h1, a {
+    text-align: center;
+    display: block;
+    color: $nu-yellow;
+    text-transform: uppercase;
+    font-size: 1.75em;
+    font-weight: normal;
+    margin-bottom:0em;
+  }
+}
+
+
+body {
   background-color: $background;
 }
 
@@ -22,9 +45,12 @@ article {
 
   @include display(flex);
 
-  a {
+  a, a:hover {
     color: $body-text;
+  }
 
+  a:hover {
+    text-decoration: underline;
   }
 
   h1 {
@@ -32,9 +58,16 @@ article {
   }
 
   .copy {
+    @include display(flex);
+    @include flex-direction(column);
     @include flex-grow(1);
     @include flex-shrink(2);
     @include flex-basis(500px);
+    justify-content: space-between;
+
+    footer {
+      font-size: 0.75em;
+    }
   }
 
   aside {
