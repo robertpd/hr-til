@@ -1,17 +1,20 @@
 class Post < ActiveRecord::Base
-  validates_presence_of :body
-  validates_presence_of :channel_id
-  validates_presence_of :developer
+  validates :body, :channel_id, :developer, presence: true
   validates :title, presence: true, length: { maximum: 50 }
   validates :likes, numericality: { greater_than_or_equal_to: 0 }
-  validate  :body_size, if: -> { body.present? }
+  validate :body_size, if: -> { body.present? }
+
+  delegate :name, to: :channel, prefix: true
+  delegate :twitter_handle, to: :developer, prefix: true
+  delegate :username, to: :developer, prefix: true
+  delegate :slack_display_name, to: :developer, prefix: true
 
   belongs_to :developer
   belongs_to :channel
 
   before_create :generate_slug
-  after_update  :notify_slack_on_likes_threshold, if: -> { tens_of_likes? && likes_changed? }
-  after_save    :notify_slack_on_publication, if: -> { published_at? && published_at_changed? }
+  after_update :notify_slack_on_likes_threshold, if: :likes_threshold?
+  after_save :notify_slack_on_publication, if: :publishing?
 
   scope :published, -> { where('published_at is not null') }
   scope :drafts, -> { where('published_at is null') }
@@ -22,23 +25,15 @@ class Post < ActiveRecord::Base
   MAX_WORDS = 200
 
   def published?
-    !!published_at?
+    published_at?
   end
 
   def display_date
     published_at || created_at
   end
 
-  def developer_username
-    developer.username
-  end
-
   def twitter_handle
-    developer_twitter_handle || 'hashrocket'
-  end
-
-  def channel_name
-    channel.name
+    developer_twitter_handle || ENV['default_twitter_handle']
   end
 
   def to_param
@@ -51,7 +46,8 @@ class Post < ActiveRecord::Base
   end
 
   def decrement_likes
-    self.likes -= 1 if self.likes != 0
+    return if self.likes.zero?
+    self.likes -= 1
     save
   end
 
@@ -77,6 +73,14 @@ class Post < ActiveRecord::Base
 
   private
 
+  def likes_threshold?
+    tens_of_likes? && likes_changed?
+  end
+
+  def publishing?
+    published_at? && published_at_changed?
+  end
+
   def tens_of_likes?
     !likes.zero? && likes % 10 == 0
   end
@@ -90,10 +94,12 @@ class Post < ActiveRecord::Base
   end
 
   def body_size
-    if word_count > MAX_WORDS
-      words_remaining_abs = words_remaining.abs
-      errors.add :body, "of this post is too long. It is #{words_remaining_abs} #{'word'.pluralize(words_remaining_abs)} over the limit of 200 words"
-    end
+    return true if word_count < MAX_WORDS
+
+    words_remaining_abs = words_remaining.abs
+    errors.add :body, "of this post is too long. It is "\
+      "#{words_remaining_abs} #{'word'.pluralize(words_remaining_abs)} "\
+      "over the limit of 200 words"
   end
 
   def generate_slug
@@ -106,10 +112,6 @@ class Post < ActiveRecord::Base
 
   def notify_slack(event)
     SlackNotifier.new.async.perform(self, event)
-  end
-
-  def developer_twitter_handle
-    developer.twitter_handle
   end
 
   def self.search(query)

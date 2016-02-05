@@ -6,7 +6,6 @@
 !/log/.keep
 /tmp
 /config/application.yml
-config/initializers/omniauth.rb
 .DS_Store
 .idea/*
 

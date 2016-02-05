@@ -1,6 +1,6 @@
 # HR-TIL
 
-[![Circle CI](https://circleci.com/gh/hashrocket/hr-til.svg?style=svg)](https://circleci.com/gh/hashrocket/hr-til) [![Code Climate](https://codeclimate.com/github/hashrocket/hr-til/badges/gpa.svg)](https://codeclimate.com/github/hashrocket/hr-til)
+[![Circle CI](https://circleci.com/gh/hashrocket/hr-til.svg?style=svg)](https://circleci.com/gh/hashrocket/hr-til) [![Code Climate](https://codeclimate.com/github/hashrocket/hr-til/badges/gpa.svg)](https://codeclimate.com/github/hashrocket/hr-til) [![Issue Count](https://codeclimate.com/github/hashrocket/hr-til/badges/issue_count.svg)](https://codeclimate.com/github/hashrocket/hr-til)
 
 > TIL is a project by Hashrocket to catalogue the sharing & accumulation of
 > knowledge as it happens day-to-day. Posts have a 200-word limit and any
@@ -15,7 +15,7 @@ project.
 If you are creating your own version of the site, fork the repository. Then,
 follow these setup steps:
 
-```
+```sh
 $ git clone https://github.com/hashrocket/hr-til
 $ cd hr-til
 $ bundle install
@@ -24,19 +24,12 @@ $ cp config/application.yml{,.example}
 $ rails s
 ```
 
-Authentication is managed by Omniauth and Google. Once you've set up an app in
-the Google Developer's Console API manager, change `hashrocket.com` in the code
-below to the domain of users you're allowing to post:
+Authentication is managed by Omniauth and Google. To whitelist a domain or multiple domains, add the domain name to your environmental variables:
 
-```ruby
-# config/initializers/omniauth.rb
+```yml
+# config/application.yml
 
-Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :google_oauth2,
-    ...
-    hd: 'hashrocket.com',
-    ...
-end
+permitted_domains: 'hashrocket.com|hshrckt.com'
 ```
 
 With this in place, you can visit '/admin' and log in with an email address from
@@ -51,7 +44,7 @@ The `selenium-webdriver` gem requires the Firefox browser.
 Staging and production for Hashrocket's TIL is located here:
 
 * http://hr-til-staging.herokuapp.com
-* http://til.hashrocket.com
+* https://til.hashrocket.com
 
 ### Environmental Variables
 

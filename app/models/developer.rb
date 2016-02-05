@@ -1,6 +1,6 @@
 class Developer < ActiveRecord::Base
   has_many :posts
-  validates :email, presence: true
+  validates :email, presence: true, format: { with: /\A.+@(#{ENV['permitted_domains']})\z/ }
   validates :username, presence: true, uniqueness: true
   validates :twitter_handle, length: { maximum: 15 }, format: { with: /\A(?=.*[a-z])[a-z_\d]+\Z/i }, allow_blank: true
 
@@ -19,5 +19,9 @@ class Developer < ActiveRecord::Base
 
   def posts_count
     posts.published.count
+  end
+
+  def slack_display_name
+    slack_name || username
   end
 end

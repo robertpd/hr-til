@@ -4,8 +4,15 @@
       .copy
         %h1 My Profile
 
+
       = form_for developer, url: profile_path do |f|
         %dl
+          %dt
+            = label_tag :email
+            %dd= developer.email
+          %dt
+            = f.label :slack_name
+            %dd= f.text_field :slack_name, placeholder: 'Enter name...'
           %dt
             = f.label :twitter_handle
             = f.error_message_on :twitter_handle
@@ -17,4 +24,3 @@
         %fieldset.actions
           = f.submit 'Submit'
           = link_to 'cancel', root_path
-

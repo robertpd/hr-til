@@ -91,6 +91,18 @@ Then 'I see my profile page' do
   end
 end
 
+When "I enter a Slack name" do
+  fill_in "Slack name", with: 'l33t 10x programmer'
+end
+
+Then "I see my Slack name" do
+  expect(page).to have_selector("input[value='l33t 10x programmer']")
+end
+
+Then(/^I see my email "([^"]*)"$/) do |email|
+  expect(page).to have_content(email)
+end
+
 When 'I enter my twitter handle' do
   fill_in 'Twitter handle', with: 'hashrocket'
 end
@@ -120,7 +132,7 @@ end
 
 Then 'I see the footer information' do
   within 'footer' do
-    expect(page).to have_link 'Hashrocket', href: 'http://hashrocket.com'
+    expect(page).to have_link 'Hashrocket', href: 'https://hashrocket.com'
   end
 end
 
