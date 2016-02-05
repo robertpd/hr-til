@@ -1,6 +1,11 @@
 body {
   margin-top: 0px;
 }
+
+pre.highlight {
+  background-color: rgba(#fff, 0.75);
+  padding: 1em;
+}
 header {
   border-bottom: 1px solid $nu-yellow;
   margin-bottom: 1em;
@@ -102,6 +107,16 @@ article {
       li:nth-child(5) {
         background-color: $nu-blue-30;
       }
+    }
+  }
+}
+
+
+#post_edit {
+  section.box article {
+    @include flex-direction(column);
+    .copy {
+      @include flex-basis(1em);
     }
   }
 }
