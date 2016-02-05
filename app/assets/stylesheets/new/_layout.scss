@@ -2,19 +2,27 @@ body {
   margin-top: 0px;
 }
 
+nav.site_nav {
+  display: block;
+}
+
 pre.highlight {
   background-color: rgba(#fff, 0.75);
   padding: 1em;
 }
-header {
+header.site_head {
   border-bottom: 1px solid $nu-yellow;
   margin-bottom: 1em;
   position: fixed;
   display: block;
   width: 100%;
-  background-color: rgba(#fff, 0.75);
+  background-color: $nu-blue;
+  padding-top: 1em;
+  padding-bottom: 1em;
 
-  h1, a {
+  h1, a, a:hover {
+    font-family: 'Bitter', serif;
+    letter-spacing: 10px;
     text-align: center;
     display: block;
     color: $nu-yellow;
@@ -31,13 +39,14 @@ body {
 }
 
 main {
-  max-width: 1080px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #home {
   @include display(flex);
   @include flex-direction(column);
-  max-width: 1050px;
   margin: 1em auto;
 }
 
@@ -112,12 +121,30 @@ article {
 }
 
 
+
+
 #post_edit {
   section.box article {
     @include flex-direction(column);
     .copy {
       @include flex-basis(1em);
     }
+  }
+
+  h1 {
+    margin-bottom: 1em;
+    clear: both;
+  }
+
+  .character_limit, .word_limit {
+    float: right;
+    font-size: 0.75em;
+    font-style: italic;
+
+  }
+
+  dt label {
+    display: inline-block;
   }
 }
 
