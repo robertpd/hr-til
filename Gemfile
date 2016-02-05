@@ -30,6 +30,7 @@ group :development do
   gem 'brakeman', require: false
   gem 'bullet'
   gem 'phil'
+  gem 'refills'
 end
 
 group :development, :test do

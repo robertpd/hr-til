@@ -1,9 +1,16 @@
 body {
-  margin-top: 0px;
+  margin: 0px;
 }
 
 nav.site_nav {
   display: block;
+  position: fixed;
+  top: 0px;
+  background-color: $nu-blue;
+  width: 100%;
+  ul li {
+    display: inline;
+  }
 }
 
 pre.highlight {
@@ -11,14 +18,16 @@ pre.highlight {
   padding: 1em;
 }
 header.site_head {
-  border-bottom: 1px solid $nu-yellow;
   margin-bottom: 1em;
-  position: fixed;
   display: block;
   width: 100%;
-  background-color: $nu-blue;
   padding-top: 1em;
   padding-bottom: 1em;
+  background-image: url('/assets/nu-til-logo.svg');
+  background-repeat: no-repeat;
+  background-size: 80vw;
+  height: 10vw;
+  background-position: center;
 
   h1, a, a:hover {
     font-family: 'Bitter', serif;
@@ -30,6 +39,7 @@ header.site_head {
     font-size: 6vw;
     font-weight: normal;
     margin-bottom:0em;
+    display: none;
   }
 }
 
@@ -56,7 +66,7 @@ article {
   margin: 1em;
   padding: 1em;
   border: 1px solid $nu-blue-25;
-  @include box-shadow(8px, 8px, $nu-blue-25);
+  @include box-shadow(0.5vw, 0.5vw, $nu-blue-25);
 
   @include display(flex);
 

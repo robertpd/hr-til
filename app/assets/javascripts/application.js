@@ -23,3 +23,4 @@
 //= require post_form
 //= require til
 //= require easter
+//= require refills/navigation
