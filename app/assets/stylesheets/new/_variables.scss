@@ -1,0 +1,30 @@
+@mixin box-shadow($x-distance, $y-distance, $color) {
+    -webkit-box-shadow: -$x-distance $y-distance 0px 0px $color;
+    -moz-box-shadow: -$x-distance $y-distance 0px 0px $color;
+    box-shadow: -$x-distance $y-distance 0px 0px $color;
+};
+
+$nu-blue: rgba(16, 84, 144, 1);
+$nu-yellow: rgba(239, 178, 31, 1);
+$background: rgba(245, 245, 245, 1);
+$body-text: rgba(230, 230, 230, 1);
+
+$nu-blue-90: rgba($nu-blue, 0.9);
+$nu-blue-75: rgba($nu-blue, 0.75);
+$nu-blue-60: rgba($nu-blue, 0.6);
+$nu-blue-45: rgba($nu-blue, 0.45);
+$nu-blue-30: rgba($nu-blue, 0.30);
+$nu-blue-80: rgba($nu-blue, 0.8);
+$nu-blue-90: rgba($nu-blue, 0.9);
+$nu-blue-25: rgba($nu-blue, 0.25);
+
+
+
+
+/*Box shadows: 8px in y direction*/
+
+/*Shadow: 25%, 8px, 8px*/
+
+
+
+

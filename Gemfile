@@ -24,6 +24,7 @@ gem 'sucker_punch', '~> 1.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'kaminari'
 gem 'twitter'
+gem 'neat'
 
 group :development do
   gem 'brakeman', require: false

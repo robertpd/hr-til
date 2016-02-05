@@ -205,6 +205,9 @@ GEM
     multi_xml (0.5.5)
     multipart-post (2.0.0)
     naught (1.1.0)
+    neat (1.7.2)
+      bourbon (>= 4.0)
+      sass (>= 3.3)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     oauth2 (1.0.0)
@@ -384,6 +387,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   launchy
+  neat
   omniauth-google-oauth2
   pg
   phil
