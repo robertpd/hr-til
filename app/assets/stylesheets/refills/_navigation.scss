@@ -12,7 +12,7 @@ header.navigation {
   //////////////////////////////////////////////////////////////////////////////////
 
   $navigation-padding: 1em;
-  $navigation-background: $dark-gray;
+  $navigation-background: $nu-blue;
   $navigation-color: transparentize(white, 0.3);
   $navigation-color-hover: white;
   $navigation-height: 60px;
@@ -265,7 +265,7 @@ header.navigation {
   // Elements on the far right
 
   .navigation-tools {
-    background: #505050;
+    background: $navigation-background;
     clear: both;
     display: block;
     height: $navigation-height;
