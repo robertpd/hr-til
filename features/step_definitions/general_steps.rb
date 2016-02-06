@@ -82,6 +82,7 @@ Then(/^I should get a response with content-type "([^"]*)"$/) do |content_type|
 end
 
 And 'I click profile' do
+  page.find('a.username').click
   click_on 'Profile'
 end
 
