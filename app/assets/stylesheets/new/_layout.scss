@@ -36,6 +36,13 @@ header.site_head {
   }
 }
 
+.page_head h1, .page_head h2 {
+  text-align: center;
+  text-transform: uppercase;
+  color: $nu-blue;
+  font-size: 1.2rem;
+}
+
 body {
   background-color: $background;
 }
@@ -178,6 +185,36 @@ textarea.autosize {
   }
 }
 
+#statistics {
+  small {
+    float: right;
+  }
+
+  li {
+    border-bottom: 1px solid $nu-blue-25;
+  }
+
+  .two_column {
+    @include display(flex);
+    @include flex-direction(row);
+    article {
+      @include flex-basis(50%);
+    }
+  }
+  article {
+
+    h3 {
+      text-align: center;
+      text-transform: uppercase;
+      border-bottom: 1px solid $nu-blue-60;
+      padding-bottom: 0.5em;
+    }
+
+    @include shadow-box();
+    @include flex-direction(column);
+  }
+}
+
 
 @include media($mobile) {
 
@@ -215,6 +252,14 @@ textarea.autosize {
       margin-bottom: 0.5em;
     }
   }
+
+
+  #statistics {
+    .two_column {
+      @include flex-direction(column);
+    }
+  }
+
 }
 
 .site_footer {
