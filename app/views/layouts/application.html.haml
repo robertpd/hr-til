@@ -18,12 +18,12 @@
     %meta(name="twitter:description" content="TIL is a project by Hashrocket to catalogue the sharing & accumulation of knowledge as it happens day-to-day. Posts have a 200-word limit and any Hashrocket team member can contribute. We hope you enjoy learning along with us.")
     %meta(name="twitter:image" content="//til.hashrocket.com/assets/til_twittercard.png")
   %body
+    = render 'refills/navigation'
+
     %header.site_head
       %h1= link_to SITE_NAME, root_path
 
     = render 'shared/flash'
-
-    = render 'refills/navigation'
 
     %main= yield
 
