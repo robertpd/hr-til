@@ -8,8 +8,8 @@ describe PostHelper do
       @post = FactoryGirl.create(:post)
       @post.slug = '1234'
       @post.save!
-      
-      expected_result = "<a href=\"http://twitter.com/share\" class=\"twitter-share-button\" data-text=\"Today I learned: Web Development\" data-via=\"nulogy\" data-hashtags=\"phantomjs\" data-url=\"http://www.example.com/posts/1234-web-development\">Tweet</a>"
+
+      expected_result = "<a href=\"http://twitter.com/share\" class=\"twitter-share-button\" data-text=\"Today I learned: Web Development\" data-via=\"twitter_handle\" data-hashtags=\"phantomjs\" data-url=\"http://www.example.com/posts/1234-web-development\">Tweet</a>"
 
       expect(helper.tweet_link(@post)).to eq expected_result
     end
