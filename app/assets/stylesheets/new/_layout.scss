@@ -5,6 +5,7 @@ body {
 pre.highlight {
   background-color: $light-gray;
   padding: 1em;
+  border: 1px solid $nu-blue;
 }
 header.site_head {
   margin-bottom: 1em;
@@ -86,40 +87,25 @@ article {
 
   aside {
     margin-left: 0px;
-  }
-
-  aside {
+    padding: 0px;
     @include flex-grow(0);
     @include flex-shrink(2);
     @include flex-basis(5em);
 
     ul {
-      margin-left: 1.5em;
 
       li {
-        background-color: $nu-blue-90;
-        padding: 0.5em;
+        padding: 1em;
         margin-bottom: 0.5em;
         font-size: 0.75em;
+        border-bottom: 1px solid $body-text;
         a, a:hover {
-          color: $body-text;
+          color: $nu-blue;
         }
       }
 
-      li:nth-child(2) {
-        background-color: $nu-blue-75;
-      }
-
-      li:nth-child(3) {
-        background-color: $nu-blue-60;
-      }
-
-      li:nth-child(4) {
-        background-color: $nu-blue-45;
-      }
-
-      li:nth-child(5) {
-        background-color: $nu-blue-30;
+      li:last-child {
+        border-bottom-width: 0px;
       }
     }
   }
