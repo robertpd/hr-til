@@ -246,9 +246,8 @@ When 'I search for "$query" in the address bar' do |query|
 end
 
 When 'I search for "$query" in the search bar' do |query|
-  click_link "search"
   fill_in 'q', with: query
-  click_on 'Search'
+  page.find("#search-submit").click
 end
 
 Then 'I see the "$body_fragment" post' do |body_fragment|
