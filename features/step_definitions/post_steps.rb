@@ -553,6 +553,10 @@ When 'I visit the posts page' do
   visit post_path @post
 end
 
+When 'I close the modal' do
+  page.find(".modal-close").click
+end
+
 When 'I visit the new post page' do
   visit new_post_path
 end

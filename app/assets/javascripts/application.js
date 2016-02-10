@@ -24,3 +24,4 @@
 //= require til
 //= require easter
 //= require refills/navigation
+//= require refills/modal

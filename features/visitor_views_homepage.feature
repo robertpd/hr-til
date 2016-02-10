@@ -17,9 +17,9 @@ Feature: Visitor views homepage
   Scenario: Visitor sees About Us
     Given I am a visitor
     And I visit the homepage
-    Then I should see a "?" button
+    Then I should see a "About" button
     And I should not see the About Us text
-    When I click "?"
+    When I click "About"
     Then I should see the About Us text
-    When I click "?"
+    When I close the modal
     And I should not see the About Us text

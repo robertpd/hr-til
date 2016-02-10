@@ -23,9 +23,6 @@
               <%= link_to 'Drafts', drafts_path %>
             </li>
             <li class="nav-link">
-              <%= link_to 'About', '#' %>
-            </li>
-            <li class="nav-link">
               <%= link_to 'Stats', '#' %>
             </li>
         <% else %>
@@ -33,6 +30,9 @@
               <%= link_to 'Sign In', admin_path %>
             </li>
         <% end %>
+        <li class="nav-link">
+          <%= link_to 'About', '#', class: 'modal-link' %>
+        </li>
       </ul>
     </nav>
     <div class="navigation-tools">
