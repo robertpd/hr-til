@@ -67,12 +67,7 @@ article {
   }
 
   .copy, aside {
-    background-color: #fff;
-    color: $nu-blue;
-    margin: 1em;
-    padding: 1em;
-    border: 1px solid $nu-blue-25;
-    @include box-shadow(0.5vw, 0.5vw, $nu-blue-25);
+    @include shadow-box();
     @include display(flex);
     @include flex-direction(column);
     @include flex-grow(1);
@@ -98,7 +93,7 @@ article {
         padding: 1em;
         margin-bottom: 0.5em;
         font-size: 0.75em;
-        border-bottom: 1px solid $body-text;
+        border-bottom: 1px solid $nu-blue-25;
         a, a:hover {
           color: $nu-blue;
         }
@@ -175,6 +170,9 @@ textarea.autosize {
     @include flex-wrap(wrap);
 
     aside {
+      @include override-shadow-box();
+      margin: 1em;
+      margin-top: 0em;
       @include flex-grow(1);
       @include flex-shrink(2);
       @include flex-basis(100%);
@@ -188,6 +186,7 @@ textarea.autosize {
         @include flex-wrap(wrap);
 
         li {
+          @include shadow-box();
           display: inline-block;
           margin: 0.25em 0.25em;
           line-height: 2;
@@ -196,3 +195,4 @@ textarea.autosize {
     }
   }
 }
+
