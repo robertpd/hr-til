@@ -28,7 +28,6 @@
     %main= yield
 
     %div.site_about.modal
-      -#= link_to "?", "#", class: "aside_toggle"
       .copy.modal-fade-screen
         .modal-inner
           %div{class: 'modal-close', for: 'modal-1'}
@@ -36,9 +35,6 @@
             TIL is a project by [Hashrocket](https://hashrocket.com) to catalogue the sharing & accumulation of knowledge as it happens day-to-day. Posts have a 200-word limit and any Hashrocket team member can contribute. We hope you enjoy learning along with us.
 
             Also: follow [@hashrockettil](https://twitter.com/hashrockettil) to inject your Twitter feed with knowledge.
-
-    %aside.site_statistics
-      = link_to "statistics", statistics_path, class: "aside_toggle"
 
     %aside.site_search
       .search_fields

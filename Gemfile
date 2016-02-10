@@ -25,6 +25,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'kaminari'
 gem 'twitter'
 gem 'neat'
+gem 'font-awesome-rails'
 
 group :development do
   gem 'brakeman', require: false

@@ -4,6 +4,10 @@
     <nav role="navigation" class='site_nav'>
       <ul id="js-navigation-menu" class="navigation-menu show">
         <% if developer_signed_in? %>
+
+            <li class="nav-link first">
+              <%= link_to fa_icon("home"), root_path %>
+            </li>
             <li class="nav-link more">
               <%= link_to current_developer.username, current_developer, class: 'username' %>
               <ul class="submenu">
@@ -23,7 +27,7 @@
               <%= link_to 'Drafts', drafts_path %>
             </li>
             <li class="nav-link">
-              <%= link_to 'Stats', '#' %>
+              <%= link_to 'Statistics', statistics_path %>
             </li>
         <% else %>
             <li class="nav-link">
