@@ -178,6 +178,20 @@ textarea.autosize {
   }
 }
 
+#statistics {
+  .two_column {
+    @include display(flex);
+    @include flex-direction(row);
+    article {
+      @include flex-basis(50%);
+    }
+  }
+  article {
+    @include shadow-box();
+    @include flex-direction(column);
+  }
+}
+
 
 @include media($mobile) {
 
@@ -215,6 +229,14 @@ textarea.autosize {
       margin-bottom: 0.5em;
     }
   }
+
+
+  #statistics {
+    .two_column {
+      @include flex-direction(column);
+    }
+  }
+
 }
 
 .site_footer {

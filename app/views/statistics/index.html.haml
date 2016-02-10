@@ -24,7 +24,7 @@
                 \##{tt.channel.name}
                 %span •
                 #{pluralize(tt.likes, 'like')}
-    .stats_column
+    .two_column
       %article
         %header
           %h1 #{pluralize posts.count, "post"} in #{pluralize channels.count, "channel"}
@@ -34,8 +34,6 @@
               = link_to channel_path channel do
                 %b ##{channel.name}
                 %small #{pluralize(channel.posts_count, 'post')}
-
-    .stats_column.right
       %article
         %header
           %h1 #{pluralize authors.count, "author"}
