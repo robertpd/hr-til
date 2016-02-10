@@ -1,5 +1,7 @@
 body {
   margin: 0px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 300;
 }
 
 pre.highlight {
@@ -108,8 +110,10 @@ article {
 
 #post_edit {
   section.box article {
+    @include shadow-box();
     @include flex-direction(column);
     .copy {
+      @include override-shadow-box();
       @include flex-basis(1em);
     }
   }
