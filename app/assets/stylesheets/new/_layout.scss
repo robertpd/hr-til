@@ -190,8 +190,14 @@ textarea.autosize {
           display: inline-block;
           margin: 0.25em 0.25em;
           line-height: 2;
+          padding-top: 0.5em;
+          padding-bottom: 0.5em;
         }
       }
+    }
+
+    .copy {
+      margin-bottom: 0.5em;
     }
   }
 }
