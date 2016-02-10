@@ -163,6 +163,17 @@ textarea.autosize {
 }
 
 
+#profile_edit {
+  section.box article {
+    @include shadow-box();
+    @include flex-direction(column);
+  }
+  .copy {
+    @include flex-basis(1em);
+    @include override-shadow-box();
+  }
+}
+
 
 @include media($mobile) {
 
