@@ -36,6 +36,13 @@ header.site_head {
   }
 }
 
+.page_head h1, .page_head h2 {
+  text-align: center;
+  text-transform: uppercase;
+  color: $nu-blue;
+  font-size: 1.2rem;
+}
+
 body {
   background-color: $background;
 }
@@ -179,6 +186,14 @@ textarea.autosize {
 }
 
 #statistics {
+  small {
+    float: right;
+  }
+
+  li {
+    border-bottom: 1px solid $nu-blue-25;
+  }
+
   .two_column {
     @include display(flex);
     @include flex-direction(row);
