@@ -246,9 +246,8 @@ When 'I search for "$query" in the address bar' do |query|
 end
 
 When 'I search for "$query" in the search bar' do |query|
-  click_link "search"
   fill_in 'q', with: query
-  click_on 'Search'
+  page.find("#search-submit").click
 end
 
 Then 'I see the "$body_fragment" post' do |body_fragment|
@@ -551,6 +550,10 @@ end
 
 When 'I visit the posts page' do
   visit post_path @post
+end
+
+When 'I close the modal' do
+  page.find(".modal-close").click
 end
 
 When 'I visit the new post page' do

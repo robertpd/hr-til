@@ -1,0 +1,53 @@
+<header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
+    <nav role="navigation" class='site_nav'>
+      <ul id="js-navigation-menu" class="navigation-menu show">
+        <% if developer_signed_in? %>
+
+            <li class="nav-link first">
+              <%= link_to fa_icon("home"), root_path %>
+            </li>
+            <li class="nav-link more">
+              <%= link_to current_developer.username, current_developer, class: 'username' %>
+              <ul class="submenu">
+                <li>
+                  <%= link_to 'Profile', edit_profile_path %>
+                </li>
+                <li>
+                  <%= link_to 'Sign Out', account_signout_path %>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-link">
+              <%= link_to 'Create Post', new_post_path %>
+            </li>
+            <li class="nav-link">
+              <%= link_to 'Drafts', drafts_path %>
+            </li>
+        <% else %>
+            <li class="nav-link">
+              <%= link_to 'Sign In', admin_path %>
+            </li>
+        <% end %>
+        <li class="nav-link">
+          <%= link_to 'Statistics', statistics_path, class: 'statistics-link' %>
+        </li>
+        <li class="nav-link">
+          <%= link_to 'About', '#', class: 'modal-link' %>
+        </li>
+      </ul>
+    </nav>
+    <div class="navigation-tools">
+      <div class="search-bar">
+        <%= form_tag root_path, method: 'get', role: 'search' do %>
+            <%= search_field_tag :q, nil, placeholder: 'Enter Search' %>
+            <button type="submit" id="search-submit">
+              <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png" alt="Search Icon">
+            </button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</header>

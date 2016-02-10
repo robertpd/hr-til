@@ -8,6 +8,8 @@
     %meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1")
     %link(href='//fonts.googleapis.com/css?family=Raleway:900' rel='stylesheet' type='text/css')
     %link(href='//fonts.googleapis.com/css?family=Rosario:400,700italic,700,400italic' rel='stylesheet' type='text/css')
+    %link(href='//fonts.googleapis.com/css?family=Nunito:300,400,700' rel='stylesheet' type='text/css')
+    %link(href='//fonts.googleapis.com/css?family=Bitter:400,700' rel='stylesheet' type='text/css')
     = favicon_link_tag 'favicon.png'
     = yield :head
     %meta(name="twitter:card" content="summary_large_image")
@@ -17,49 +19,25 @@
     %meta(name="twitter:description" content="TIL is a project by Hashrocket to catalogue the sharing & accumulation of knowledge as it happens day-to-day. Posts have a 200-word limit and any Hashrocket team member can contribute. We hope you enjoy learning along with us.")
     %meta(name="twitter:image" content="//til.hashrocket.com/assets/til_twittercard.png")
   %body
+    = render 'refills/navigation'
+
     %header.site_head
       %h1= link_to SITE_NAME, root_path
 
     = render 'shared/flash'
 
-    %nav.site_nav
-      %ul
-        - if developer_signed_in?
-          %li= link_to current_developer.username, current_developer
-          %li= link_to "Sign Out", account_signout_path
-          %li= link_to "Create Post", new_post_path
-          %li= link_to "Drafts", drafts_path
-          %li= link_to "Profile", edit_profile_path
-
     %main= yield
 
-    %aside.site_about
-      = link_to "?", "#", class: "aside_toggle"
-      .copy
-        :markdown
-          TIL is a project by [Hashrocket](https://hashrocket.com) to catalogue the sharing & accumulation of knowledge as it happens day-to-day. Posts have a 200-word limit and any Hashrocket team member can contribute. We hope you enjoy learning along with us.
+    %div.site_about.modal
+      .copy.modal-fade-screen
+        .modal-inner
+          %div{class: 'modal-close', for: 'modal-1'}
+          :markdown
+            TIL is a project by [Hashrocket](https://hashrocket.com) to catalogue the sharing & accumulation of knowledge as it happens day-to-day. Posts have a 200-word limit and any Hashrocket team member can contribute. We hope you enjoy learning along with us.
 
-          Also: follow [@hashrockettil](https://twitter.com/hashrockettil) to inject your Twitter feed with knowledge.
-
-    %aside.site_statistics
-      = link_to "statistics", statistics_path, class: "aside_toggle"
-
-    %aside.site_search
-      .search_fields
-        = form_tag root_path, method: 'get' do
-          = search_field_tag :q
-          = submit_tag 'Search', name: nil
-        = link_to "search", "#", class: "aside_toggle"
+            Also: follow [@hashrockettil](https://twitter.com/hashrockettil) to inject your Twitter feed with knowledge.
 
     %footer.site_footer
       %p
-        You can follow us on Twitter.
-        = link_to "@hashrockettil", "https://twitter.com/hashrockettil"
-      %p
         TIL is an open source project.
         = link_to "visit us on Github", "https://github.com/hashrocket/hr-til"
-      %p
-        curated in Jacksonville and Chicago
-        %br/
-        by
-        = link_to 'Hashrocket', 'https://hashrocket.com'

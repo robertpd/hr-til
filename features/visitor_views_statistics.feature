@@ -11,14 +11,14 @@ Feature: Visitor views statistics
     Given I am a visitor
     When I visit the homepage
     And a post exists for each of the last 35 days
-    And I click "statistics"
+    And I click "Statistics"
     Then I see statistics
 
   Scenario: Visitors views statistics when there are no recent posts
     Given I am a visitor
     When I visit the homepage
     And 35 posts exist more than thirty days old
-    And I click "statistics"
+    And I click "Statistics"
     Then I see statistics
 
   Scenario: Visitors views post total counts
