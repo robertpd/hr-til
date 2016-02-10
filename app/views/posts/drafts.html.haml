@@ -1,0 +1,5 @@
+%section#drafts
+  - if @posts.empty?
+    %h1 Couldn't find any drafts! Maybe you should create some :)
+  - else
+    = render @posts

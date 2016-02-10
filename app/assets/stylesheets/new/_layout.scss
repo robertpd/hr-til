@@ -59,6 +59,13 @@ main {
   margin: 1em auto;
 }
 
+#drafts {
+  h1 {
+    color: $nu-blue;
+    text-align: center;
+  }
+}
+
 article {
 
   @include display(flex);

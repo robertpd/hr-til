@@ -83,7 +83,7 @@ class PostsController < ApplicationController
       @posts = @posts.where(developer: current_developer)
     end
 
-    render :index
+    render :drafts
   end
 
   private
