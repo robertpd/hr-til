@@ -86,9 +86,6 @@ article {
     @include shadow-box();
     @include display(flex);
     @include flex-direction(column);
-    @include flex-grow(1);
-    @include flex-shrink(2);
-    @include flex-basis(500px);
     justify-content: space-between;
 
     footer {
@@ -96,12 +93,18 @@ article {
     }
   }
 
+  .copy {
+    @include flex-grow(1);
+    @include flex-shrink(2);
+    @include flex-basis(75%);
+  }
+
   aside {
     margin-left: 0px;
     padding: 0px;
     @include flex-grow(0);
     @include flex-shrink(2);
-    @include flex-basis(5em);
+    @include flex-basis(25%);
 
     ul {
 
