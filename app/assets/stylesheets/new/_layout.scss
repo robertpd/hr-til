@@ -251,6 +251,9 @@ textarea.autosize {
           line-height: 2;
           padding-top: 0.5em;
           padding-bottom: 0.5em;
+          a.like {
+            padding-right: 2em;
+          }
         }
       }
     }
@@ -277,4 +280,18 @@ textarea.autosize {
 iframe.twitter-share-button {
   display: block;
   margin: 1em auto;
+}
+
+a.like {
+  display: block;
+  background: image-url("icon_like.png") right center no-repeat;
+  background-size: auto 70%;
+  background-origin: border-box;
+  @include transition(background-image 0.2s)
+}
+
+a.like:hover,
+a.like.liked {
+  background-image: image-url("icon_like_active.png");
+  border-color: #d84536;
 }
