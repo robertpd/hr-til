@@ -143,7 +143,7 @@ header.navigation {
     }
   }
 
-  ul li.nav-link.first {
+  ul li.nav-link:first-child {
     @include media($large-screen) {
       margin-left: 1em;
     }
@@ -303,9 +303,9 @@ header.navigation {
     $search-bar-border: 1px solid $search-bar-border-color;
     $search-bar-background: lighten($search-bar-border-color, 10%);
 
-    float: left;
+    float: right;
     padding: 0.85em 0.6em 0.7em 0.6em;
-    width: 60%;
+    width: 30%;
 
     form {
       position: relative;
@@ -315,7 +315,7 @@ header.navigation {
         background: #fff;
         border-radius: $base-border-radius * 2;
         border: $navigation-search-border-gray;
-        color: $navigation-color;
+        color: $dark-gray;
         font-size: 0.9em;
         font-style: italic;
         margin: 0;
@@ -324,6 +324,7 @@ header.navigation {
 
         @include media($large-screen) {
           width: 100%;
+          color: $navigation-color;
           background: $navigation-search-background;
           border: $navigation-search-border;
         }
@@ -331,6 +332,7 @@ header.navigation {
 
       button[type=submit] {
         @include button(flat, $navigation-search-background);
+        background-color: $light-gray;
         bottom: 0.3em;
         left: auto;
         outline: none;
@@ -338,6 +340,10 @@ header.navigation {
         position: absolute;
         right: 0.3em;
         top: 0.3em;
+
+        @include media($large-screen) {
+          background-color: transparent;
+        }
 
         img {
           height: 12px;
@@ -350,7 +356,7 @@ header.navigation {
     @include media($horizontal-bar-mode) {
       display: inline-block;
       position: relative;
-      width: 16em;
+      width: 13em;
 
       input {
         @include box-sizing(border-box);
