@@ -303,9 +303,9 @@ header.navigation {
     $search-bar-border: 1px solid $search-bar-border-color;
     $search-bar-background: lighten($search-bar-border-color, 10%);
 
-    float: left;
+    float: right;
     padding: 0.85em 0.6em 0.7em 0.6em;
-    width: 60%;
+    width: 30%;
 
     form {
       position: relative;
@@ -350,7 +350,7 @@ header.navigation {
     @include media($horizontal-bar-mode) {
       display: inline-block;
       position: relative;
-      width: 16em;
+      width: 13em;
 
       input {
         @include box-sizing(border-box);
