@@ -69,6 +69,7 @@
       position: relative
       background: lighten($nu-blue-25, 50%)
       border: 1px solid mix($light, $blue, 80%)
+      border-left-width: 0px
       +transition(background-color, .1s)
       .activity_chart_bar
         position: absolute
@@ -77,6 +78,8 @@
         left: 0
         background: $nu-blue
         +transition(background-color, .1s)
+      &:first-child
+        border-left-width: 1px
       &:after,
       &:before
         display: none
