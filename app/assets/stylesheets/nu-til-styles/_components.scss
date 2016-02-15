@@ -1,0 +1,149 @@
+article {
+  @include display(flex);
+
+  a, a:hover {
+    color: $nu-blue;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  .copy, aside {
+    @include shadow-box();
+    @include display(flex);
+    @include flex-direction(column);
+    justify-content: space-between;
+
+    footer {
+      font-size: 0.75em;
+    }
+  }
+
+  .copy {
+    @include flex-grow(1);
+    @include flex-shrink(2);
+    @include flex-basis(75%);
+  }
+
+  aside {
+    margin-left: 0px;
+    padding: 0px;
+    @include flex-grow(0);
+    @include flex-shrink(2);
+    @include flex-basis(25%);
+
+    ul {
+      li {
+        padding: 1em;
+        margin-bottom: 0.5em;
+        font-size: 0.75em;
+        border-bottom: 1px solid $nu-blue-25;
+
+        a, a:hover {
+          color: $nu-blue;
+        }
+      }
+
+      li:last-child {
+        border-bottom-width: 0px;
+      }
+    }
+  }
+
+  iframe.twitter-share-button {
+    display: block;
+    margin: 1em auto;
+  }
+
+  a.like {
+    display: block;
+    background: image-url("icon_like.png") right center no-repeat;
+    background-size: auto 70%;
+    background-origin: border-box;
+    @include transition(background-image 0.2s)
+  }
+
+  a.like:hover, a.like.liked {
+    background-image: image-url("icon_like_active.png");
+    border-color: #d84536;
+  }
+}
+
+textarea {
+  width: 100%;
+  padding: .5rem;
+  border: 1px solid $blue;
+  line-height: 1.6;
+  box-sizing: border-box;
+  border-radius: 0;
+  display: block;
+}
+
+textarea:focus {
+  border-color: $nu-blue;
+  outline: none;
+}
+
+textarea.autosize {
+  resize: none;
+}
+
+#editor {
+  height: 300px;
+  width: 100%;
+  display: none;
+}
+
+pre.highlight {
+  background-color: $light-gray;
+  padding: 1em;
+  border: 1px solid $nu-blue;
+}
+
+@include media($mobile) {
+  article {
+    @include flex-wrap(wrap);
+
+    .copy {
+      margin-bottom: 0.5em;
+    }
+
+    aside {
+      @include override-shadow-box();
+      margin: 1em;
+      margin-top: 0em;
+      @include flex-grow(1);
+      @include flex-shrink(2);
+      @include flex-basis(100%);
+      @include flex-wrap(wrap);
+
+      ul {
+        padding-right: 0.5em;
+        width: 100%;
+        display: block;
+        margin-left: 0px;
+        @include flex-wrap(wrap);
+
+        li {
+          @include shadow-box();
+          display: inline-block;
+          margin: 0.25em 0.25em;
+          line-height: 2;
+          padding-top: 0.5em;
+          padding-bottom: 0.5em;
+
+          a.like {
+            padding-right: 2em;
+          }
+        }
+      }
+    }
+
+  }
+
+}

@@ -1,0 +1,52 @@
+body {
+  margin: 0px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 300;
+  background-color: $background;
+}
+
+main {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+header.site_head {
+  margin-bottom: 1em;
+  margin-top: 1em;
+  display: block;
+  width: 100%;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  background-image: image-url('nu-til-logo.svg');
+  background-repeat: no-repeat;
+  background-size: 80vw;
+  height: 10vw;
+  background-position: center;
+
+  h1, a, a:hover {
+    font-family: 'Bitter', serif;
+    letter-spacing: 10px;
+    text-align: center;
+    display: block;
+    color: $nu-yellow;
+    text-transform: uppercase;
+    font-size: 6vw;
+    font-weight: normal;
+    margin-bottom: 0em;
+    display: none;
+  }
+}
+
+.page_head h1, .page_head h2 {
+  text-align: center;
+  text-transform: uppercase;
+  color: $nu-blue;
+  font-size: 1.2rem;
+}
+
+.site_footer {
+  text-align: center;
+  font-size: 0.75em;
+}
+

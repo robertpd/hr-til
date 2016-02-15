@@ -1,0 +1,49 @@
+// For statistics page, see _statistics.scss
+
+#profile_edit {
+  section.box article {
+    @include shadow-box();
+    @include flex-direction(column);
+  }
+  .copy {
+    @include flex-basis(1em);
+    @include override-shadow-box();
+  }
+}
+
+#post_edit {
+  section.box article {
+    @include shadow-box();
+    @include flex-direction(column);
+
+    .copy {
+      @include override-shadow-box();
+      @include flex-basis(1em);
+    }
+  }
+
+  h1 {
+    margin-bottom: 1em;
+    clear: both;
+  }
+
+  .character_limit, .word_limit {
+    float: right;
+    font-size: 0.75em;
+    font-style: italic;
+  }
+
+  textarea {
+    margin-bottom: 0px;
+  }
+
+  dt label {
+    display: inline-block;
+    font-weight: normal;
+  }
+
+  .actions {
+    input, a {
+    }
+  }
+}
