@@ -315,7 +315,7 @@ header.navigation {
         background: #fff;
         border-radius: $base-border-radius * 2;
         border: $navigation-search-border-gray;
-        color: $navigation-color;
+        color: $dark-gray;
         font-size: 0.9em;
         font-style: italic;
         margin: 0;
@@ -324,6 +324,7 @@ header.navigation {
 
         @include media($large-screen) {
           width: 100%;
+          color: $navigation-color;
           background: $navigation-search-background;
           border: $navigation-search-border;
         }
@@ -331,6 +332,7 @@ header.navigation {
 
       button[type=submit] {
         @include button(flat, $navigation-search-background);
+        background-color: $light-gray;
         bottom: 0.3em;
         left: auto;
         outline: none;
@@ -338,6 +340,10 @@ header.navigation {
         position: absolute;
         right: 0.3em;
         top: 0.3em;
+
+        @include media($large-screen) {
+          background-color: transparent;
+        }
 
         img {
           height: 12px;
