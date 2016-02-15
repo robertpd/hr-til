@@ -55,70 +55,70 @@
   //      font-size: 1.6rem
   //      +shadow-text
 
-
-  ul.activity_chart
-    //+shadow
-    //background: mix($light, $blue, 80%)
-    padding: 2rem 3vw
-    display: flex
-    height: 10vw
-    min-height: 10rem
-    align-items: stretch
-    li
-      flex: 1 1
-      position: relative
-      background: lighten($nu-blue-25, 50%)
-      border: 1px solid mix($light, $blue, 80%)
-      border-left-width: 0px
-      +transition(background-color, .1s)
-      .activity_chart_bar
-        position: absolute
-        right: 0
-        bottom: 0
-        left: 0
-        background: $nu-blue
-        +transition(background-color, .1s)
-      &:first-child
-        border-left-width: 1px
-      &:after,
-      &:before
-        display: none
-        position: absolute
-        color: $nu-blue
-        font-style: italic
-        font-weight: bold
-        font-size: .8em
-        left: 50%
-        margin-left: -5rem
-        width: 10rem
-        text-align: center
-      &:after
-        margin-top: .5rem
-        top: 100%
-        content: attr(data-amount) " posts"
-      &.singular:after
-        content: attr(data-amount) " post"
-      &:before
-        bottom: 100%
-        margin-bottom: .5rem
-        content: attr(data-date)
-      &:nth-child(-n+5)
-        &:after,
-        &:before
-          left: 0
-          margin-left: 0
-          text-align: left
-      &:nth-child(n+25)
-        &:after,
-        &:before
-          text-align: right
-          margin-left: 0
-          right: 0
-          left: auto
-      &:hover
-        background: mix($light, $blue, 60%)
-        .activity_chart_bar
-          background: lighten($nu-blue, 10%)
-        &:after,
-        &:before
-          display: block
+  //
+  //ul.activity_chart
+  //  //+shadow
+  //  //background: mix($light, $blue, 80%)
+  //  padding: 2rem 3vw
+  //  display: flex
+  //  height: 10vw
+  //  min-height: 10rem
+  //  align-items: stretch
+  //  li
+  //    flex: 1 1
+  //    position: relative
+  //    background: lighten($nu-blue-25, 50%)
+  //    border: 1px solid mix($light, $blue, 80%)
+  //    border-left-width: 0px
+  //    +transition(background-color, .1s)
+  //    .activity_chart_bar
+  //      position: absolute
+  //      right: 0
+  //      bottom: 0
+  //      left: 0
+  //      background: $nu-blue
+  //      +transition(background-color, .1s)
+  //    &:first-child
+  //      border-left-width: 1px
+  //    &:after,
+  //    &:before
+  //      display: none
+  //      position: absolute
+  //      color: $nu-blue
+  //      font-style: italic
+  //      font-weight: bold
+  //      font-size: .8em
+  //      left: 50%
+  //      margin-left: -5rem
+  //      width: 10rem
+  //      text-align: center
+  //    &:after
+  //      margin-top: .5rem
+  //      top: 100%
+  //      content: attr(data-amount) " posts"
+  //    &.singular:after
+  //      content: attr(data-amount) " post"
+  //    &:before
+  //      bottom: 100%
+  //      margin-bottom: .5rem
+  //      content: attr(data-date)
+  //    &:nth-child(-n+5)
+  //      &:after,
+  //      &:before
+  //        left: 0
+  //        margin-left: 0
+  //        text-align: left
+  //    &:nth-child(n+25)
+  //      &:after,
+  //      &:before
+  //        text-align: right
+  //        margin-left: 0
+  //        right: 0
+  //        left: auto
+  //    &:hover
+  //      background: mix($light, $blue, 60%)
+  //      .activity_chart_bar
+  //        background: lighten($nu-blue, 10%)
+  //      &:after,
+  //      &:before
+  //        display: block

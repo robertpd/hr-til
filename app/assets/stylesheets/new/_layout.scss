@@ -198,54 +198,6 @@ textarea.autosize {
   }
 }
 
-#statistics {
-  li > a {
-    @include display(flex);
-    @include flex-direction(row);
-    @include align-items(center);
-    padding: 0.5em;
-    b {
-      @include flex-basis(20em);
-      @include flex-grow(1);
-    }
-    small {
-      @include flex-basis(15em);
-      @include flex-shrink(1);
-      text-align: right;
-      font-size: 0.75em;
-      font-style: italic;
-    }
-    &:hover {
-      background-color: $nu-blue-25;
-      text-decoration: none;
-    }
-  }
-
-  li {
-    border-bottom: 1px solid $nu-blue-25;
-  }
-
-  .two_column {
-    @include display(flex);
-    @include flex-direction(row);
-    article {
-      @include flex-basis(50%);
-    }
-  }
-  article {
-
-    h3 {
-      text-align: center;
-      text-transform: uppercase;
-      border-bottom: 1px solid $nu-blue-60;
-      padding-bottom: 0.5em;
-    }
-
-    @include shadow-box();
-    @include flex-direction(column);
-  }
-}
-
 @include media($mobile) {
 
   article {

@@ -1,0 +1,124 @@
+#statistics {
+  li > a {
+    @include display(flex);
+    @include flex-direction(row);
+    @include align-items(center);
+    padding: 0.5em;
+    b {
+      @include flex-basis(20em);
+      @include flex-grow(1);
+    }
+    small {
+      @include flex-basis(15em);
+      @include flex-shrink(1);
+      text-align: right;
+      font-size: 0.75em;
+      font-style: italic;
+    }
+    &:hover {
+      background-color: $nu-blue-25;
+      text-decoration: none;
+    }
+  }
+
+  li {
+    border-bottom: 1px solid $nu-blue-25;
+  }
+
+  .two_column {
+    @include display(flex);
+    @include flex-direction(row);
+    article {
+      @include flex-basis(50%);
+    }
+  }
+  article {
+
+    h3 {
+      text-align: center;
+      text-transform: uppercase;
+      border-bottom: 1px solid $nu-blue-60;
+      padding-bottom: 0.5em;
+    }
+
+    @include shadow-box();
+    @include flex-direction(column);
+  }
+}
+
+ul.activity_chart {
+  padding: 2rem 3vw;
+  display: flex;
+  height: 10vw;
+  min-height: 10rem;
+  align-items: stretch;
+  li {
+    flex: 1 1;
+    position: relative;
+    background: lighten($nu-blue-25, 50%);
+    border: 1px solid mix($light, $blue, 80%);
+    border-left-width: 0px;
+    @include transition(background-color, .1s);
+
+    .activity_chart_bar {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: $nu-blue;
+      @include transition(background-color, .1s);
+    }
+    &:first-child {
+      border-left-width: 1px;
+    }
+    &:after, &:before {
+      display: none;
+      position: absolute;
+      color: $nu-blue;
+      font-style: italic;
+      font-weight: bold;
+      font-size: .8em;
+      left: 50%;
+      margin-left: -5rem;
+      width: 10rem;
+      text-align: center;
+    }
+    &:after {
+      margin-top: .5rem;
+      top: 100%;
+      content: attr(data-amount) " posts";
+    }
+    &.singular:after {
+      content: attr(data-amount) " post";
+    }
+    &:before {
+      bottom: 100%;
+      margin-bottom: .5rem;
+      content: attr(data-date);
+    }
+    &:nth-child(-n+5) {
+      &:after, &:before {
+        left: 0;
+        margin-left: 0;
+        text-align: left
+      }
+    }
+    &:nth-child(n+25) {
+      &:after, &:before {
+        text-align: right;
+        margin-left: 0;
+        right: 0;
+        left: auto;
+      }
+    }
+    &:hover {
+      background: mix($light, $blue, 60%);
+      .activity_chart_bar {
+        background: lighten($nu-blue, 10%);
+      }
+      &:after, &:before {
+        display: block;
+      }
+    }
+  }
+}
