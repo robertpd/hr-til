@@ -28,6 +28,7 @@ article {
     @include flex-grow(1);
     @include flex-shrink(2);
     @include flex-basis(75%);
+    overflow-x: auto;
   }
 
   aside {
