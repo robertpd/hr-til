@@ -20,8 +20,10 @@ header.site_head {
   padding-bottom: 1em;
   background-image: image-url('nu-til-logo.svg');
   background-repeat: no-repeat;
-  background-size: 80vw;
-  height: 10vw;
+  background-size: 100%;
+  max-width: 1050px;
+  margin-left: auto;
+  margin-right: auto;
   background-position: center;
 
   h1, a, a:hover {
