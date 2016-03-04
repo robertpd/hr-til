@@ -12,8 +12,13 @@ main {
 }
 
 header.site_head {
-  margin-bottom: 1em;
-  margin-top: 1em;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  @include media($mobile) {
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+
+  }
   display: block;
   width: 100%;
   padding-top: 1em;
@@ -33,7 +38,7 @@ header.site_head {
     display: block;
     color: $nu-yellow;
     text-transform: uppercase;
-    font-size: 6vw;
+    font-size: 2.4rem;
     font-weight: normal;
     margin-bottom: 0em;
     text-indent: -9999px;
