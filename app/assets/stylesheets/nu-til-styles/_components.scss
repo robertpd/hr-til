@@ -32,7 +32,6 @@ article {
   }
 
   aside {
-    margin-left: 0px;
     padding: 0px;
     @include flex-grow(0);
     @include flex-shrink(2);
