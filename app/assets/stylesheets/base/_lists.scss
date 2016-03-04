@@ -10,6 +10,11 @@ ol {
   margin-left: 1.5em;
 }
 
+.copy nav ul {
+  list-style-type: none;
+  margin-left: 0px;
+}
+
 dl {
   margin-bottom: $small-spacing;
 
