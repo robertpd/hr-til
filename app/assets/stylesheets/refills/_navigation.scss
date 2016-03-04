@@ -273,7 +273,6 @@ header.navigation {
   // Elements on the far right
 
   .navigation-tools {
-    background: $background;
     clear: both;
     display: block;
     height: $navigation-height;
@@ -306,7 +305,7 @@ header.navigation {
 
     float: right;
     padding: 0.85em 0.6em 0.7em 0.6em;
-    width: 30%;
+    width: 100%;
     min-width: 200px;
 
     form {
