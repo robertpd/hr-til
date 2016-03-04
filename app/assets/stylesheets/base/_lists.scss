@@ -1,8 +1,13 @@
 ul,
 ol {
-  list-style-type: none;
-  margin: 0;
+  list-style-type: disc;
+  margin-left: 1.5em;
   padding: 0;
+}
+
+nav ul, ol {
+  list-style-type: none;
+  margin-left: 0px;
 }
 
 dl {
