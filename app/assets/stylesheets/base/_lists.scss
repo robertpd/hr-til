@@ -1,13 +1,8 @@
 ul,
 ol {
-  list-style-type: disc;
-  margin-left: 1.5em;
-  padding: 0;
-}
-
-nav ul, nav ol, aside ul, aside ol {
   list-style-type: none;
-  margin-left: 0px;
+  margin: 0;
+  padding: 0;
 }
 
 dl {
