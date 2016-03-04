@@ -28,11 +28,17 @@
         .modal-inner
           %div{class: 'modal-close', for: 'modal-1'}
           :markdown
-            TIL is a project by [Hashrocket](https://hashrocket.com) to catalogue the sharing & accumulation of knowledge as it happens day-to-day. Posts have a 200-word limit and any Hashrocket team member can contribute. We hope you enjoy learning along with us.
+            TIL is a [Nulogy](https://nulogy.com) microblog for sharing web development tips, tricks, and tidbits. From Ruby on Rails to AngularJS, our Engineering department blogs on topics across the stack to share in our collective success and improve our understanding of all things technology.
 
-            Also: follow [@hashrockettil](https://twitter.com/hashrockettil) to inject your Twitter feed with knowledge.
+          %span{style: 'font-size: 0.75em'}
+            TIL is an open source project by
+            = link_to "Hashrocket.", "https://hashrocket.com"
+            Check them out on
+            = link_to "GitHub!", "https://github.com/hashrocket/hr-til"
 
     %footer.site_footer
       %p
-        TIL is an open source project.
-        = link_to "visit us on Github", "https://github.com/hashrocket/hr-til"
+        TIL is an open source project by
+        = link_to "Hashrocket.", "https://hashrocket.com"
+        Check them out on
+        = link_to "GitHub!", "https://github.com/hashrocket/hr-til"
