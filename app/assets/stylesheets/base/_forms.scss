@@ -17,6 +17,10 @@ label {
   margin-bottom: $small-spacing / 2;
 }
 
+.inline {
+  display: inline;
+}
+
 input,
 select {
   display: block;
