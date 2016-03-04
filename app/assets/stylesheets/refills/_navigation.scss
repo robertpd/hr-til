@@ -131,7 +131,9 @@ header.navigation {
     a {
       color: $navigation-color;
       display: inline-block;
-      font-weight: 300;
+      font-weight: 400;
+      font-size: 0.8em;
+      text-transform: uppercase;
 
       @include media ($horizontal-bar-mode) {
         padding-right: 1em;
