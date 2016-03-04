@@ -40,6 +40,11 @@
   dt label {
     display: inline-block;
     font-weight: normal;
+
+    &.required:after {
+      content: " *";
+      color: red;
+    }
   }
 
   .actions {
