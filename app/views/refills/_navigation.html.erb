@@ -1,6 +1,19 @@
 <header class="navigation" role="banner">
   <div class="navigation-wrapper">
+    <span class="logo">
+      <%= image_tag('nu-logo.png') %>
+    </span>
     <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
+    <div class="navigation-tools">
+      <div class="search-bar">
+        <%= form_tag root_path, method: 'get', role: 'search' do %>
+          <%= search_field_tag :q, nil, placeholder: 'Search' %>
+          <button type="submit" id="search-submit">
+            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png" alt="Search Icon">
+          </button>
+        <% end %>
+      </div>
+    </div>
     <nav role="navigation" class='site_nav'>
       <ul id="js-navigation-menu" class="navigation-menu show">
         <% if developer_signed_in? %>
@@ -39,15 +52,6 @@
         </li>
       </ul>
     </nav>
-    <div class="navigation-tools">
-      <div class="search-bar">
-        <%= form_tag root_path, method: 'get', role: 'search' do %>
-            <%= search_field_tag :q, nil, placeholder: 'Search' %>
-            <button type="submit" id="search-submit">
-              <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png" alt="Search Icon">
-            </button>
-        <% end %>
-      </div>
-    </div>
+
   </div>
 </header>

@@ -35,7 +35,6 @@ header.navigation {
 
   .navigation-wrapper {
     @include clearfix;
-    @include outer-container;
     position: relative;
     z-index: 9999;
   }
@@ -78,11 +77,13 @@ header.navigation {
 
   nav {
     float: none;
+    display: none;
     min-height: $navigation-height;
     z-index: 9999999;
 
     @include media ($horizontal-bar-mode) {
-      float: left;
+      display: block;
+      float: right;
     }
   }
 
@@ -130,7 +131,9 @@ header.navigation {
     a {
       color: $navigation-color;
       display: inline-block;
-      font-weight: 300;
+      font-weight: 400;
+      font-size: 0.8em;
+      text-transform: uppercase;
 
       @include media ($horizontal-bar-mode) {
         padding-right: 1em;
