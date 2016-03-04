@@ -9,10 +9,6 @@
     <nav role="navigation" class='site_nav'>
       <ul id="js-navigation-menu" class="navigation-menu show">
         <% if developer_signed_in? %>
-
-            <li class="nav-link first">
-              <%= link_to fa_icon("home"), root_path %>
-            </li>
             <li class="nav-link more">
               <%= link_to current_developer.username, current_developer, class: 'username' %>
               <ul class="submenu">
