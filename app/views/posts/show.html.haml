@@ -4,11 +4,11 @@
   - if @post.published? && multiple_posts?
     %ul
       - unless oldest_post? @post
-        %li
+        %li{class: 'previous-post'}
           = link_to previous_post @post do
             &larr; previous TIL
       - unless newest_post? @post
-        %li
+        %li{class: 'next-post'}
           = link_to next_post @post do
             next TIL &rarr;
 
