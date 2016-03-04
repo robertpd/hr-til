@@ -87,11 +87,13 @@
     }
   }
 
-  .two_column {
-    @include display(flex);
-    @include flex-direction(row);
-    article {
-      @include flex-basis(50%);
+  @include media($desktop) {
+    .two_column {
+      @include display(flex);
+      @include flex-direction(row);
+      article {
+        @include flex-basis(50%);
+      }
     }
   }
 
