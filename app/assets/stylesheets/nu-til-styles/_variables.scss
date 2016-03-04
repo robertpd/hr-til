@@ -8,7 +8,9 @@
   @include box-shadow(0.5vw, 0.5vw, $nu-blue-25);
   background-color: #fff;
   color: $nu-blue;
-  margin: 1em;
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-bottom: 2em;
   padding: 1em;
   border: 1px solid $nu-blue-25;
 }
@@ -40,6 +42,7 @@ $nu-blue-25: rgba($nu-blue, 0.25);
 $white-40: rgba(#ffffff, 0.40);
 
 $mobile: new-breakpoint(max-width 500px 4);
+$desktop: new-breakpoint(min-width 500px 4);
 
 
 
