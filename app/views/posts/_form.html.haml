@@ -7,7 +7,7 @@
     %dd= f.text_field :title, placeholder: 'Enter title...'
     %dt
       = f.label :body, class: "required"
-      = f.error_message_on :body
+      = f.error_message_on :body, prepend_text: "The body "
       %small.word_limit(data-limit="#{Post::MAX_WORDS}")
     %dd
       #editor

@@ -1,7 +1,7 @@
 %article.post{ :class => unless post.published? then 'draft' end }
   %section.copy
     %h1= link_to post.title, post
-    = find_and_preserve markdown_render post.body
+    = find_and_preserve markdown_render sanitize post.body
     %footer
       %nav
         = content_for :post_nav
