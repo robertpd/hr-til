@@ -37,13 +37,20 @@
     margin-bottom: 0px;
   }
 
-  dt label {
-    display: inline-block;
-    font-weight: normal;
+  dt {
+    label {
+      display: inline-block;
+      font-weight: normal;
+      margin: 0;
 
-    &.required:after {
-      content: " *";
-      color: red;
+      &.required:after {
+        content: " *";
+        color: red;
+      }
+    }
+
+    .character_limit, .word_limit {
+      float: right;
     }
   }
 
