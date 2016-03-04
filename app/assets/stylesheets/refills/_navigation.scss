@@ -77,12 +77,10 @@ header.navigation {
 
   nav {
     float: none;
-    display: none;
     min-height: $navigation-height;
     z-index: 9999999;
 
     @include media ($horizontal-bar-mode) {
-      display: block;
       float: right;
     }
   }
