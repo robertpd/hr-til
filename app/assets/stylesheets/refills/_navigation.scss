@@ -129,7 +129,8 @@ header.navigation {
     a {
       color: $navigation-color;
       display: inline-block;
-      font-weight: 400;
+      font-weight: normal;
+      letter-spacing: 0.05em;
       font-size: 0.8em;
       text-transform: uppercase;
 

@@ -23,13 +23,14 @@ article {
       font-size: 0.75em;
       margin-top: 0.5em;
       color: $nu-blue-60;
+      font-family: $helvetica;
       p {
         margin-bottom: 0px;
       }
       a {
         color: $nu-blue-60;
       }
-      .previous-post {
+      .previous-post, .draft-post {
         float: left;
       }
       .next-post {
@@ -49,6 +50,9 @@ article {
     @include flex-shrink(2);
     @include flex-basis(75%);
     overflow-x: auto;
+    color: #4e4e4e;
+    font-family: 'Noto Serif', serif;
+    line-height: 1.75;
   }
 
   aside {
