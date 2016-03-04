@@ -5,6 +5,11 @@ ol {
   padding: 0;
 }
 
+.copy ul, .copy ol {
+  list-style-type: disc;
+  margin-left: 1.5em;
+}
+
 dl {
   margin-bottom: $small-spacing;
 
