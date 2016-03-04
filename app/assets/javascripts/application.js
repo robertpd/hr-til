@@ -15,6 +15,8 @@
 //= require jquery_ujs
 //= require jquery.autosize
 //
+//= require lodash.core-4.6.1
+//
 //= require google_analytics
 //= require twitter_button
 //
