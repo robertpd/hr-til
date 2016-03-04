@@ -16,6 +16,9 @@
                   <%= link_to 'Profile', edit_profile_path %>
                 </li>
                 <li>
+                  <%= link_to 'My Posts', developer_path(id: current_developer.username) %>
+                </li>
+                <li>
                   <%= link_to 'Sign Out', account_signout_path %>
                 </li>
               </ul>
