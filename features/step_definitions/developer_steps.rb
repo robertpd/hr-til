@@ -32,7 +32,7 @@ end
 
 Then 'I am signed in' do
   expect(current_path).to eq root_path
-  expect(page).to have_content 'johnsmith'
+  expect(page).to have_content(/johnsmith/i)
   @developer = Developer.last
 end
 
