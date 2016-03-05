@@ -12,23 +12,19 @@ main {
 }
 
 header.site_head {
-  margin-bottom: 2rem;
-  margin-top: 2rem;
   @include media($mobile) {
     margin-bottom: 0.5rem;
     margin-top: 0.5rem;
 
   }
   display: block;
-  width: 100%;
   padding-top: 1em;
   padding-bottom: 1em;
   background-image: image-url('nu-til-logo.svg');
   background-repeat: no-repeat;
   background-size: 100%;
   max-width: 1050px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 2rem 1rem;
   background-position: center;
 
   h1, a, a:hover {
