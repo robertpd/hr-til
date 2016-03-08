@@ -64,15 +64,15 @@ describe Post do
   it 'should not allow a body longer than 200 words' do
     post.body = 'word ' * 201
     expect(post).to_not be_valid
-    expect(post.errors.messages[:body]).to eq ['of this post is too long. It is 1 word over the limit of 200 words']
+    expect(post.errors.messages[:body]).to match_array([a_string_matching('of this post is too long. It is 1 word over the limit of 200 words')])
 
     post.body = 'word ' * 300
     expect(post).to_not be_valid
-    expect(post.errors.messages[:body]).to eq ['of this post is too long. It is 100 words over the limit of 200 words']
+    expect(post.errors.messages[:body]).to match_array([a_string_matching('of this post is too long. It is 100 words over the limit of 200 words')])
 
     post.body = 'word ' * 400
     expect(post).to_not be_valid
-    expect(post.errors.messages[:body]).to eq ['of this post is too long. It is 200 words over the limit of 200 words']
+    expect(post.errors.messages[:body]).to match_array([a_string_matching('of this post is too long. It is 200 words over the limit of 200 words')])
   end
 
   context 'it should count its words' do
@@ -110,7 +110,7 @@ describe Post do
 
     it 'with too many words' do
       post = FactoryGirl.build(:post, body: 'word ' * 300)
-      expect(post.send(:words_remaining)).to eq -100
+      expect(post.send(:words_remaining)).to eq(-100)
     end
   end
 
