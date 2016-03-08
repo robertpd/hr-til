@@ -8,7 +8,7 @@
     %dt
       = f.label :body, class: "required"
       %small.word_limit(data-limit="#{Post::MAX_WORDS}")
-      = f.error_message_on :body, prepend_text: "The body "
+      = f.error_message_on :body
     %dd
       #editor
       = f.text_area :body, placeholder: 'Enter body...', class: 'autosize'
