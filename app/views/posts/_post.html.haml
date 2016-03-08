@@ -11,10 +11,9 @@
   %aside
     %ul
       %li
-        %div{class: 'developer-username'}
-          = link_to post.developer do
-            more by
-            %b= post.developer_username
+        = link_to post.developer, class: 'developer-username' do
+          more by
+          %b= post.developer_username
       %li
         %b
           = link_to post.channel, class: post.channel_name do
