@@ -27,6 +27,9 @@ article {
       p {
         margin-bottom: 0px;
       }
+      p.date-time a {
+        color: $nu-yellow;
+      }
       a {
         color: $nu-blue-60;
       }
