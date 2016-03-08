@@ -15,7 +15,8 @@ $(function(){
     renderCharacterLimit: function() {
       post_form.renderCountMessage(
         post_form.$character_limit,
-        post_form.title_max - post_form.$titletextfield.val().length,
+        post_form.title_max,
+        post_form.$titletextfield.val().length,
         'character'
       );
     },
@@ -23,16 +24,20 @@ $(function(){
       post_form.word_count = post_form.$textarea.val().split(/\s+|\n/).filter(Boolean).length,
       post_form.renderCountMessage(
         post_form.$word_limit,
-        post_form.max - post_form.word_count,
+        post_form.max,
+        post_form.word_count,
         'word'
       );
-      post_form.$word_count.text("word count: " + post_form.word_count);
+      post_form.$word_count
+        .toggleClass('negative_preview_word_count', post_form.max - post_form.word_count < 0)
+        .text("word count: " + post_form.word_count + "/" + post_form.max);
     },
-    renderCountMessage: function($el, amount, noun) {
-      var plural = amount === 1 ? '' : 's';
+    renderCountMessage: function($el, max_word_count, current_word_count, noun) {
+      var remainder = max_word_count - current_word_count;
+      var plural = remainder === 1 ? '' : 's';
       $el
-        .toggleClass('negative', amount < 0)
-        .text(amount + ' ' + noun + plural + ' available');
+        .toggleClass('negative', remainder < 0)
+        .text(remainder + ' ' + noun + plural + ' available');
     },
     init: function() {
       if (!this.$el.length) { return; }
