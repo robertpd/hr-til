@@ -60,12 +60,17 @@ article {
     @include flex-grow(0);
     @include flex-shrink(2);
     @include flex-basis(25%);
+    overflow: auto;
 
     ul {
       li {
         padding: 0.2em 1em;
         font-size: 0.85em;
         border-bottom: 1px solid $nu-blue-25;
+
+        .developer-username {
+          overflow-wrap: break-word;
+        }
 
         a, a:hover {
           color: $nu-blue;
