@@ -5,7 +5,7 @@
 };
 
 @mixin shadow-box() {
-  @include box-shadow(0.5vw, 0.5vw, $nu-blue-25);
+  @include box-shadow(3px, 3px, $nu-blue-25);
   background-color: #fff;
   color: $nu-blue;
   margin-left: 1em;
