@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   get 'account/signout', to: 'sessions#destroy'
   get '/posts_drafts', to: 'posts#drafts', as: :drafts
 
+  get '/.well-known/acme-challenge/:id' => 'pages#letsencrypt'
+
+
   resources :channels, path: '/', only: :show
   post '/post_preview', to: 'posts#preview'
 
