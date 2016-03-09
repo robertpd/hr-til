@@ -10,8 +10,6 @@
     %link(href='//fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css')
     = favicon_link_tag 'favicon.ico'
     = yield :head
-    = if Rails.env.production?
-      = render 'shared/analytics'
 
   %body
     = render 'refills/navigation'
