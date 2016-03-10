@@ -100,4 +100,24 @@ describe Developer do
       end
     end
   end
+
+  describe "the slack display name" do
+    it "returns the slack display name" do
+      d = Developer.new(slack_name: "slackname")
+
+      expect(d.slack_display_name).to eq("slackname")
+    end
+
+    it "returns the username if the slack name is nil" do
+      d = Developer.new(slack_name: nil, username: "username")
+
+      expect(d.slack_display_name).to eq("username")
+    end
+
+    it "returns the username if the slack name is blank" do
+      d = Developer.new(slack_name: "", username: "username")
+
+      expect(d.slack_display_name).to eq("username")
+    end
+  end
 end

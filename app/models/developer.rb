@@ -22,6 +22,6 @@ class Developer < ActiveRecord::Base
   end
 
   def slack_display_name
-    slack_name || username
+    slack_name.present? ? slack_name : username
   end
 end
