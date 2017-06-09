@@ -1,0 +1,16 @@
+stages:
+  - build
+
+before_script:
+  - apt-get update
+  - apt-get install --assume-yes --quiet software-properties-common
+  - add-apt-repository ppa:certbot/certbot
+  - sed -i 's/jessie/trusty/g' /etc/apt/sources.list.d/certbot-certbot-jessie.list
+  - apt-get update # update again after adding ppa
+  - apt-get install --assume-yes --quiet certbot
+  - chmod +x ./script/certbot_auth.sh
+
+get_key:
+  script:
+    - bash -lc 'certbot certonly --manual --non-interactive --domain til-engineering.nulogy.com --email bryanm@nulogy.com --manual-auth-hook ./script/certbot_auth.sh'
+  stage: build

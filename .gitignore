@@ -15,3 +15,5 @@ coverage
 lastest.dump
 
 .ruby-version
+
+certbot.log
