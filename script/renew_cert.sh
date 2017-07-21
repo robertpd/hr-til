@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-git checkout master
+#git checkout master
 
 read -p 'Email address to use for cert renewal: ' email
 
