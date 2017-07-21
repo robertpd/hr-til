@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-git pull
+git pull gitlab master
 
 echo "Updating controller letsencrypt action with value ${CERTBOT_VALIDATION}"
 
 sed -i "" -E 's/"(.*)"/"${CERTBOT_VALIDATION}"/' ../app/controllers/pages_controller.rb
 
-echo "Commiting change"
+echo "Committing change"
 
 git add ../app/controllers/pages_controller.rb
 
