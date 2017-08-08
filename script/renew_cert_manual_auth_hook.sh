@@ -16,4 +16,4 @@ git push heroku-production master
 
 echo "Change pushed to Heroku. Waiting 5 minutes before continuing..."
 
-sleep 5m
+sleep 300
