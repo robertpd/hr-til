@@ -1,0 +1,40 @@
+#!/usr/bin/env ruby
+
+INTRO = <<-MSG
+This script will get a challenge key from certbot, commit it to the codebase, push to heroku and gitlab.
+Certbot will then verify the challenge, and store the new SSL certificate on your computer.
+You will need the following to begin:
+  - Clean working directory
+  - 'gitlab' remote
+  - 'heroku-production' remote
+  - Heroku collaborator access for the nulogytil app (can be provided by Infra)
+If you meet the above conditions, you can continue.  Continue? (y/n)
+MSG
+
+def main
+  proceed = prompt_for_response(INTRO)[0].downcase == "y"
+
+  if proceed
+    run "git checkout master"
+    email = prompt_for_response("Email address to use for cert renewal:")
+
+    run "brew install certbot"
+
+    puts "If prompted below for password, enter your the password for your Nulogy account/Mac OS login."
+
+    run "sudo certbot certonly --agree-tos --manual --manual-public-ip-logging-ok --manual-auth-hook ./script/renew_cert_manual_auth_hook.sh --manual-cleanup-hook ./script/renew_cert_manual_cleanup_hook.sh --non-interactive --logs-dir ./log/ --domain til-engineering.nulogy.com --email $email"
+    run "CERTBOT_VALIDATION=myfakevalidationvalue ./script/renew_cert_manual_auth_hook.sh"
+    run "./script/renew_cert_manual_cleanup_hook.sh"
+  end
+end
+
+def run(command)
+  system(command) || exit(1)
+end
+
+def prompt_for_response(prompt)
+  puts prompt
+  gets.chomp
+end
+
+main
