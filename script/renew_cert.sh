@@ -4,7 +4,7 @@ echo "This script will get a challenge key from certbot, commit it to the codeba
 echo "Certbot will then verify the challenge, and store the new SSL certificate on your computer."
 echo "You will need the following to begin:"
 echo "  - Clean working directory"
-echo "  - 'gitlab' remote"
+echo "  - 'origin' remote"
 echo "  - 'heroku-production' remote"
 echo "  - Heroku collaborator access for the nulogytil app (can be provided by Infra)"
 read -p "If you meet the above conditions, you can continue.  Continue? (y/n) " answer

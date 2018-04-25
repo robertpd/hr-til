@@ -12,7 +12,7 @@ git add ./app/controllers/pages_controller.rb
 
 git commit -m "Updates letsencrypt challenge"
 
-git push gitlab master
+git push origin master
 git push heroku-production master
 
 echo "Change pushed to Heroku. Waiting 5 minutes before continuing..."
