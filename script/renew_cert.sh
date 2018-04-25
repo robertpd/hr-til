@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo "This script will get a challenge key from certbot, commit it to the codebase, push to heroku and gitlab."
+echo "This script will get a challenge key from certbot, commit it to the codebase, push to heroku and github."
 echo "Certbot will then verify the challenge, and store the new SSL certificate on your computer."
 echo "You will need the following to begin:"
 echo "  - Clean working directory"

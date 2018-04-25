@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-git pull gitlab master
+git pull origin master
 
 echo "Updating controller letsencrypt action with value ${CERTBOT_VALIDATION}"
 

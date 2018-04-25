@@ -4,7 +4,7 @@
 - Run the script `./script/renew_cert.sh`
 ##### Prerequisites to running the script
 * Clean working directory
-* 'gitlab' remote
+* 'origin' remote
 * 'heroku-production' remote
 * Heroku collaborator access for the nulogytil app (can be provided by Infra)
 
@@ -13,7 +13,7 @@
 * Install certbot
 * Run certbot in non-interactive mode
 * Update the `pages_controller` with the challenge provided by Certbot.
-* Commit the change and push to gitlab and to heroku-production.
+* Commit the change and push to github and to heroku-production.
 * Sleep 5 minutes to allow the change to be reflected live on Heroku.
 * After 5 minutes, certbot will store the new certificate on your computer if the challenge is successful.
 * Update the cert on heroku
