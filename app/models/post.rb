@@ -1,6 +1,7 @@
 class Post < ActiveRecord::Base
   validates :body, :channel_id, :developer, presence: true
   validates :title, presence: true, length: { maximum: 50 }
+  validates :content_confirmed_safe, acceptance: { accept: true }
   validates :likes, numericality: { greater_than_or_equal_to: 0 }
   validate :body_size, if: -> { body.present? }
 

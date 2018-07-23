@@ -22,6 +22,11 @@ describe Post do
     expect(post).to_not be_valid
   end
 
+  it 'should require content confirmed safe' do
+    post.content_confirmed_safe = false
+    expect(post).to_not be_valid
+  end
+
   it 'should require a channel' do
     post.channel = nil
     expect(post).to_not be_valid
