@@ -7,6 +7,7 @@ Feature: Developer creates post
     Then I see a form for posts
     When I enter information into that form
     And I select a channel
+    And I check "Content confirmed safe"
     And I check "Publish this post"
     And I click submit
     Then I see the homepage
@@ -24,6 +25,7 @@ Feature: Developer creates post
     Then I see a form for posts
     When I enter information with markdown inline code into that form
     And I select a channel
+    And I check "Content confirmed safe"
     And I check "Publish this post"
     And I click submit
     Then I see the homepage
@@ -36,6 +38,7 @@ Feature: Developer creates post
     Then I see a form for posts
     When I enter information with markdown fenced code into that form
     And I select a channel
+    And I check "Content confirmed safe"
     And I check "Publish this post"
     And I click submit
     Then I see the homepage
@@ -48,6 +51,7 @@ Feature: Developer creates post
     Then I see a form for posts
     When I enter information with markdown bullets into that form
     And I select a channel
+    And I check "Content confirmed safe"
     And I check "Publish this post"
     And I click submit
     Then I see the homepage

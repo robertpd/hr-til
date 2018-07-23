@@ -17,6 +17,11 @@
       = f.label :channel_id, class: "required"
       = f.error_message_on :channel_id
     %dd= f.collection_select :channel_id, sorted_channels, :id, :name, include_blank: ""
+    %label.checkbox{display: 'inline'}
+    = f.check_box :content_confirmed_safe
+    = label_tag :content_confirmed_safe, 'Content confirmed safe (you confirm that this content is safe for consumption on a public, unrestricted website, i.e., no sensitive information)', class: 'inline'
+    = f.error_message_on :content_confirmed_safe
+    %br
     - if @post.publishable?
       %label.checkbox{class: 'inline'}
         = check_box_tag :published, "true", false

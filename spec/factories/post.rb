@@ -5,6 +5,7 @@ FactoryGirl.define do
     developer { FactoryGirl.create(:developer) }
     channel { FactoryGirl.create(:channel) }
     published_at Time.now
+    content_confirmed_safe true
   end
 
   trait :for_today do
