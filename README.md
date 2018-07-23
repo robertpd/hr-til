@@ -1,25 +1,3 @@
-# Nulogy HR-TIL Readme
-
-## Updating the SSL Certificate via Script
-- Run the script `./script/renew_cert.sh`
-##### Prerequisites to running the script
-* Clean working directory
-* 'origin' remote
-* 'heroku-production' remote
-* Heroku collaborator access for the nulogytil app (can be provided by Infra)
-
-##### The script will:
-* Prompt you for your email address.
-* Install certbot
-* Run certbot in non-interactive mode
-* Update the `pages_controller` with the challenge provided by Certbot.
-* Commit the change and push to github and to heroku-production.
-* Sleep 5 minutes to allow the change to be reflected live on Heroku.
-* After 5 minutes, certbot will store the new certificate on your computer if the challenge is successful.
-* Update the cert on heroku
-
-## Updating the SSL Certificate via manual process
-* See https://trello.com/c/812bLW6r/1-manual-process-updating-til-lets-encrypt-ssl-cert
 # Original HR-TIL Readme
 
 [![Circle CI](https://circleci.com/gh/hashrocket/hr-til.svg?style=svg)](https://circleci.com/gh/hashrocket/hr-til) [![Code Climate](https://codeclimate.com/github/hashrocket/hr-til/badges/gpa.svg)](https://codeclimate.com/github/hashrocket/hr-til) [![Issue Count](https://codeclimate.com/github/hashrocket/hr-til/badges/issue_count.svg)](https://codeclimate.com/github/hashrocket/hr-til)
