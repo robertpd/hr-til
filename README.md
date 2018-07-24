@@ -35,6 +35,10 @@ permitted_domains: 'hashrocket.com|hshrckt.com'
 With this in place, you can visit '/admin' and log in with an email address from
 the domain you've allowed.
 
+### Running specs
+- Acceptance specs: `rake cucumber`
+- Integration specs: `rspec spec`
+
 ### Dependencies
 
 The `selenium-webdriver` gem requires the Firefox browser.
