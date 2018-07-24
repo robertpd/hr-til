@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
   validates :body, :channel_id, :developer, presence: true
   validates :title, presence: true, length: { maximum: 50 }
-  validates :content_confirmed_safe, acceptance: { accept: true }
+  validate :content_confirmed_safe_accepted
   validates :likes, numericality: { greater_than_or_equal_to: 0 }
   validate :body_size, if: -> { body.present? }
 
@@ -138,5 +138,9 @@ class Post < ActiveRecord::Base
     else
       order created_at: :desc
     end
+  end
+
+  def content_confirmed_safe_accepted
+    errors.add(:content_confirmed_safe, "must be accepted") unless content_confirmed_safe
   end
 end
