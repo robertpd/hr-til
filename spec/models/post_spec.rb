@@ -66,6 +66,12 @@ describe Post do
     expect(post.send(:slugified_title)).to eq valid_title
   end
 
+  it 'should allow a body with 200 words' do
+    post.body = 'word ' * 200
+
+    expect(post).to be_valid
+  end
+
   it 'should not allow a body longer than 200 words' do
     post.body = 'word ' * 201
     expect(post).to_not be_valid
