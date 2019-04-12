@@ -4,7 +4,7 @@ ruby '2.4.6'
 
 gem 'rails', '5.0.7.2'
 
-gem 'active_model_serializers'
+gem 'active_model_serializers', '0.9.4'
 gem 'authem'
 gem 'autoprefixer-rails'
 gem 'bourbon', '4.2.6'
@@ -51,5 +51,7 @@ group :test do
   gem 'launchy'
   gem 'simplecov', require: false
   gem 'webmock'
+  gem 'geckodriver-helper'
+  gem 'rails-controller-testing'
   gem 'selenium-webdriver'
 end
