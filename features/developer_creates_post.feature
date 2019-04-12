@@ -62,7 +62,7 @@ Feature: Developer creates post
     When I click create post
     Then I see a form for posts
     When I click submit
-    Then I see an error message "Body can't be blank"
+    Then I see an error message "can't be blank"
 
   Scenario: With invalid information (post body too long)
     Given I am a signed in developer
@@ -71,7 +71,7 @@ Feature: Developer creates post
     When I enter a long body into that form
     And I select no channel
     When I click submit
-    Then I see an error message "Body of this post is too long. It is 100 words over the limit of 200 words"
+    Then I see an error message "of this post is too long. It is 100 words over the limit of 200 words"
 
   Scenario: With invalid information (no channel)
     Given I am a signed in developer
@@ -79,7 +79,7 @@ Feature: Developer creates post
     Then I see a form for posts
     When I enter information into that form
     And I click submit
-    Then I see an error message "Channel can't be blank"
+    Then I see an error message "can't be blank"
 
   Scenario: Developer clicks cancel
     Given I am a signed in developer

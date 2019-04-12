@@ -1,5 +1,6 @@
 Feature: Developer visits profile page
 
+  @javascript
   Scenario: Adds a twitter handle
     Given I am a signed in developer with email "foo@example.com"
     When I visit the homepage
@@ -11,6 +12,7 @@ Feature: Developer visits profile page
     Then I see the homepage
     And my twitter handle is set
 
+  @javascript
   Scenario: Adds an invalid twitter handle
     Given I am a signed in developer
     When I visit the homepage
@@ -18,8 +20,9 @@ Feature: Developer visits profile page
     Then I see my profile page
     When I enter an invalid twitter handle
     And I click the "Submit" button
-    Then I see an error message "Twitter handle is invalid"
+    Then I see an error message "is invalid"
 
+  @javascript
   Scenario: Can submit form without entering a Twitter handle
     Given I am a signed in developer
     When I visit the homepage
@@ -67,6 +70,7 @@ Feature: Developer visits profile page
     Then I see a form for posts
     And the editor is set to "Text Field"
 
+  @javascript
   Scenario: Adds a Slack name
     Given I am a signed in developer
     When I visit the homepage
