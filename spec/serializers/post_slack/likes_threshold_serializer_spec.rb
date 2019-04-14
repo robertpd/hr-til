@@ -3,9 +3,9 @@ require 'rails_helper'
 RSpec.describe PostSlack::LikesThresholdSerializer, type: :serializer do
   context 'Individual Resource Representation' do
     it 'is serialized correctly' do
-      developer = FactoryGirl.build(:developer,
+      developer = FactoryBot.build(:developer,
                                     username: 'tpope')
-      post = FactoryGirl.build(:post,
+      post = FactoryBot.build(:post,
                         slug: 'sluggishslug',
                         body: 'learned some things',
                         developer: developer,
@@ -23,8 +23,8 @@ RSpec.describe PostSlack::LikesThresholdSerializer, type: :serializer do
     end
 
     it 'is serialized correctly and includes Slack display name' do
-      developer = FactoryGirl.build(:developer, username: 'tpope', slack_name: 'Tim Pope')
-      post = FactoryGirl.build(:post,
+      developer = FactoryBot.build(:developer, username: 'tpope', slack_name: 'Tim Pope')
+      post = FactoryBot.build(:post,
                         slug: 'sluggishslug',
                         body: 'learned some things',
                         developer: developer,

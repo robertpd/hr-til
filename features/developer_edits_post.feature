@@ -31,7 +31,7 @@ Feature: Developer edits post
     Then I see the edit page for that post
     When I edit the post to no longer have a body
     And I click submit
-    Then I see an error message "Body can't be blank"
+    Then I see an error message "can't be blank"
 
   Scenario: Developer clicks cancel
     Given I am a signed in developer

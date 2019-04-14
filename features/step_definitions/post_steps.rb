@@ -13,23 +13,23 @@ Then 'I see a form for posts' do
 end
 
 Given 'a channel exists' do
-  @channel = FactoryGirl.create(:channel)
+  @channel = FactoryBot.create(:channel)
 end
 
 Given 'a post exists' do
-  @post = FactoryGirl.create(:post)
+  @post = FactoryBot.create(:post)
 end
 
 Given 'a post exists with a punctuated title' do
-  @post = FactoryGirl.create(:post, :with_punctuated_title)
+  @post = FactoryBot.create(:post, :with_punctuated_title)
 end
 
 Given 'a post exists with 10 likes' do
-  @post = FactoryGirl.create(:post, likes: 10)
+  @post = FactoryBot.create(:post, likes: 10)
 end
 
 Given 'a post exists by another developer' do
-  @others_post = FactoryGirl.create(:post)
+  @others_post = FactoryBot.create(:post)
 end
 
 When 'I visit the edit page for that post' do
@@ -58,7 +58,7 @@ end
 
 When 'I enter information with markdown fenced code into that form' do
   fill_in 'Title', with: 'Fenced'
-  markdown_content = "```first line\nsecond line\nthird line\n```"
+  markdown_content = "```\nfirst line\nsecond line\nthird line\n```"
   fill_in 'Body', with: markdown_content
 end
 
@@ -138,39 +138,39 @@ And 'I see the channel I selected' do
 end
 
 Given 'there exist posts for today, yesterday, and last week' do
-  rails_dev    = FactoryGirl.create(:developer, username: 'railsguy')
-  ember_dev    = FactoryGirl.create(:developer, username: 'embergal')
-  karate_dev   = FactoryGirl.create(:developer, username: 'karatedude')
+  rails_dev    = FactoryBot.create(:developer, username: 'railsguy')
+  ember_dev    = FactoryBot.create(:developer, username: 'embergal')
+  karate_dev   = FactoryBot.create(:developer, username: 'karatedude')
 
-  @rails_post   = FactoryGirl.create(:post, :for_last_week, developer: rails_dev, body: 'I learned about Rails')
-  @ember_post   = FactoryGirl.create(:post, :for_yesterday, developer: ember_dev, body: 'I learned about Ember')
-  @karate_post  = FactoryGirl.create(:post, :for_today, developer: karate_dev, body: 'I learned about Karate')
+  @rails_post   = FactoryBot.create(:post, :for_last_week, developer: rails_dev, body: 'I learned about Rails')
+  @ember_post   = FactoryBot.create(:post, :for_yesterday, developer: ember_dev, body: 'I learned about Ember')
+  @karate_post  = FactoryBot.create(:post, :for_today, developer: karate_dev, body: 'I learned about Karate')
 end
 
 Given 'three posts exist' do
-  @oldest_post = FactoryGirl.create :post, :for_last_week
-  @older_post  = FactoryGirl.create :post, :for_yesterday
-  @newest_post = FactoryGirl.create :post
+  @oldest_post = FactoryBot.create :post, :for_last_week
+  @older_post  = FactoryBot.create :post, :for_yesterday
+  @newest_post = FactoryBot.create :post
 end
 
 Given 'three posts exist, one a draft' do
-  @oldest_post = FactoryGirl.create :post, :for_yesterday
-  @older_post  = FactoryGirl.create :post, :draft
-  @newest_post = FactoryGirl.create :post
+  @oldest_post = FactoryBot.create :post, :for_yesterday
+  @older_post  = FactoryBot.create :post, :draft
+  @newest_post = FactoryBot.create :post
 end
 
 Given 'three posts exist, with publication dates in a different order than creation dates' do
-  @newest_post = FactoryGirl.create :post
-  @older_post  = FactoryGirl.create :post, :for_yesterday
-  @oldest_post = FactoryGirl.create :post, :for_last_week
+  @newest_post = FactoryBot.create :post
+  @older_post  = FactoryBot.create :post, :for_yesterday
+  @oldest_post = FactoryBot.create :post, :for_last_week
 end
 
 Given 'three posts exist, one a draft, in the same channel' do
-  @channel = FactoryGirl.create :channel
+  @channel = FactoryBot.create :channel
 
-  @oldest_post = FactoryGirl.create :post, channel: @channel
-  @older_post  = FactoryGirl.create :post, :draft, channel: @channel
-  @newest_post = FactoryGirl.create :post, channel: @channel
+  @oldest_post = FactoryBot.create :post, channel: @channel
+  @older_post  = FactoryBot.create :post, :draft, channel: @channel
+  @newest_post = FactoryBot.create :post, channel: @channel
 end
 
 When 'I visit the channel page' do
@@ -230,7 +230,7 @@ When 'I click the right arrow' do
 end
 
 Given 'there are posts in that channel' do
-  FactoryGirl.create_list(:post, 3, channel: @channel)
+  FactoryBot.create_list(:post, 3, channel: @channel)
 end
 
 When 'I click the channel' do
@@ -295,16 +295,16 @@ When 'I enter a long body into that form' do
 end
 
 Given 'posts exist for a given author' do
-  developer = FactoryGirl.create(:developer, username: 'prolificposter')
-  FactoryGirl.create(:post, :for_last_week, developer: developer)
-  FactoryGirl.create(:post, :for_yesterday, developer: developer)
-  @newest_post = FactoryGirl.create(:post, developer: developer, title: 'Newest post')
+  developer = FactoryBot.create(:developer, username: 'prolificposter')
+  FactoryBot.create(:post, :for_last_week, developer: developer)
+  FactoryBot.create(:post, :for_yesterday, developer: developer)
+  @newest_post = FactoryBot.create(:post, developer: developer, title: 'Newest post')
 end
 
 Given 'two posts exist for a given author, one a draft' do
-  @developer = FactoryGirl.create(:developer, username: 'prolificposter')
-  FactoryGirl.create(:post, :draft, developer: @developer)
-  FactoryGirl.create(:post, developer: @developer)
+  @developer = FactoryBot.create(:developer, username: 'prolificposter')
+  FactoryBot.create(:post, :draft, developer: @developer)
+  FactoryBot.create(:post, developer: @developer)
 end
 
 When "I visit that author's posts page" do
@@ -485,7 +485,7 @@ And 'the message is not red' do
 end
 
 Given(/^a post exists with (?:a|the) body "(.*?)"$/) do |body|
-  @post = FactoryGirl.create(:post, body: body)
+  @post = FactoryBot.create(:post, body: body)
 end
 
 When 'I visit the most recent post show page' do
@@ -503,7 +503,7 @@ Then 'the post has still been liked by me' do
 end
 
 Given(/^(\d+) posts exist$/) do |num|
-  FactoryGirl.create_list(:post, num.to_i)
+  FactoryBot.create_list(:post, num.to_i)
 end
 
 Then(/^I should see (\d+) posts$/) do |num|
@@ -535,7 +535,7 @@ Then 'I should not see the About Us text' do
 end
 
 Given(/^I have an existing unpublished post$/) do
-  @post = FactoryGirl.create(:post, :draft, developer: @developer)
+  @post = FactoryBot.create(:post, :draft, developer: @developer)
 end
 
 When(/^I edit the post to be published$/) do

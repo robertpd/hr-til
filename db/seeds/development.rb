@@ -17,5 +17,6 @@ end
     title: Phil.words(2).capitalize,
     likes: rand(1..10),
     created_at: Date.today - rand(30).days,
+    content_confirmed_safe: true,
     published_at: [(Date.today - rand(30).days), nil].sample)
 end

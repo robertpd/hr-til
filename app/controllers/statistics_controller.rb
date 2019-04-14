@@ -15,7 +15,7 @@ class StatisticsController < ApplicationController
   def authors
     Developer.joins(:posts)
       .merge(Post.published)
-      .uniq
+      .distinct
       .sort_by(&:posts_count)
       .reverse
   end
@@ -23,7 +23,7 @@ class StatisticsController < ApplicationController
   def channels
     Channel.joins(:posts)
       .merge(Post.published)
-      .uniq
+      .distinct
       .sort_by(&:posts_count)
       .reverse
   end
