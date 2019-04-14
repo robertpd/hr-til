@@ -56,7 +56,7 @@ describe PostsController do
       FactoryGirl.create(:post, :draft)
 
       get :index
-      expect(assigns(:posts).map(&:published?).distinct == [true]).to eq(true)
+      expect(assigns(:posts).map(&:published?).uniq == [true]).to eq(true)
     end
   end
 
