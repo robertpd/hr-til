@@ -58,7 +58,7 @@ end
 
 When 'I enter information with markdown fenced code into that form' do
   fill_in 'Title', with: 'Fenced'
-  markdown_content = "```first line\nsecond line\nthird line\n```"
+  markdown_content = "```\nfirst line\nsecond line\nthird line\n```"
   fill_in 'Body', with: markdown_content
 end
 

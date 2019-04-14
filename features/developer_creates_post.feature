@@ -31,6 +31,7 @@ Feature: Developer creates post
     Then I see the homepage
     And I see the markdown inline code I created
 
+  @javascript
   Scenario: With valid information and markdown fenced code
     Given I am a signed in developer
     And a channel exists
