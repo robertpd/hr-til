@@ -13,7 +13,7 @@ describe PostsController do
 
       it 'only allows me to update my own posts' do
         expect do
-          patch :update, titled_slug: not_my_post.to_param, post: { title: 'HAXORD' }
+          patch :update, params: { titled_slug: not_my_post.to_param, post: { title: 'HAXORD' } }
         end.to_not change { not_my_post.reload.title }
       end
 
@@ -36,7 +36,7 @@ describe PostsController do
 
       it 'allows me to update anyones post' do
         expect do
-          patch :update, titled_slug: not_my_post.to_param, post: { title: 'this is ok' }
+          patch :update, params: { titled_slug: not_my_post.to_param, post: { title: 'this is ok' } }
         end.to change { not_my_post.reload.title }
       end
     end
@@ -45,7 +45,7 @@ describe PostsController do
   describe '#show' do
     it 'is a 404 when the post is not there' do
       expect do
-        get :show, titled_slug: 'asdf'
+        get :show, params: { titled_slug: 'asdf' }
       end.to raise_error ActiveRecord::RecordNotFound
     end
   end

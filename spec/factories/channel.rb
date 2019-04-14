@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :channel do
-    name 'phantomjs'
+    name { 'phantomjs' }
   end
 end

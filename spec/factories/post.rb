@@ -1,11 +1,11 @@
 FactoryBot.define do
   factory :post do
-    title 'Web Development'
-    body 'Today I learned about web development'
+    title { 'Web Development' }
+    body { 'Today I learned about web development' }
     developer { FactoryBot.create(:developer) }
     channel { FactoryBot.create(:channel) }
-    published_at Time.now
-    content_confirmed_safe true
+    published_at { Time.now }
+    content_confirmed_safe { true }
   end
 
   trait :for_today do
@@ -13,22 +13,22 @@ FactoryBot.define do
   end
 
   trait :for_yesterday do
-    published_at Time.now - 1.day
+    published_at { Time.now - 1.day }
   end
 
   trait :for_last_week do
-    published_at Time.now - 1.week
+    published_at { Time.now - 1.week }
   end
 
   trait :for_last_year do
-    published_at Time.now - 1.year
+    published_at { Time.now - 1.year }
   end
 
   trait :with_punctuated_title do
-    title "It's Friday & Stuff"
+    title { "It's Friday & Stuff" }
   end
 
   trait :draft do
-    published_at nil
+    published_at { nil }
   end
 end
