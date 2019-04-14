@@ -2,10 +2,10 @@ require 'rails_helper'
 
 describe PostsController do
   describe '#update' do
-    let(:not_my_post) { FactoryGirl.create :post }
+    let(:not_my_post) { FactoryBot.create :post }
 
     context 'as a developer' do
-      let(:developer) { FactoryGirl.create :developer }
+      let(:developer) { FactoryBot.create :developer }
 
       before do
         controller.sign_in developer
@@ -18,9 +18,9 @@ describe PostsController do
       end
 
       it 'lists only my own drafts' do
-        FactoryGirl.create_list :post, 3, :draft, developer: developer
-        FactoryGirl.create_list :post, 3, developer: developer
-        FactoryGirl.create_list :post, 3, :draft
+        FactoryBot.create_list :post, 3, :draft, developer: developer
+        FactoryBot.create_list :post, 3, developer: developer
+        FactoryBot.create_list :post, 3, :draft
         get :drafts
 
         expect(assigns(:posts).length).to eq(3)
@@ -28,7 +28,7 @@ describe PostsController do
     end
 
     context 'as an admin' do
-      let(:admin) { FactoryGirl.create :developer, admin: true }
+      let(:admin) { FactoryBot.create :developer, admin: true }
 
       before do
         controller.sign_in admin
@@ -52,8 +52,8 @@ describe PostsController do
 
   describe '#index' do
     it 'returns a list of published posts' do
-      FactoryGirl.create_list(:post, 3)
-      FactoryGirl.create(:post, :draft)
+      FactoryBot.create_list(:post, 3)
+      FactoryBot.create(:post, :draft)
 
       get :index
       expect(assigns(:posts).map(&:published?).uniq == [true]).to eq(true)
@@ -66,12 +66,12 @@ describe PostsController do
     end
 
     context 'when I am a non-admin developer' do
-      let(:developer) { FactoryGirl.create :developer }
+      let(:developer) { FactoryBot.create :developer }
 
       it 'lists only my own drafts' do
-        FactoryGirl.create_list :post, 3, :draft, developer: developer
-        FactoryGirl.create_list :post, 3, developer: developer
-        FactoryGirl.create_list :post, 3, :draft
+        FactoryBot.create_list :post, 3, :draft, developer: developer
+        FactoryBot.create_list :post, 3, developer: developer
+        FactoryBot.create_list :post, 3, :draft
         get :drafts
 
         expect(assigns(:posts).length).to eq(3)
@@ -79,11 +79,11 @@ describe PostsController do
     end
 
     context 'when I am an admin developer' do
-      let(:developer) { FactoryGirl.create :developer, admin: true }
+      let(:developer) { FactoryBot.create :developer, admin: true }
 
       it 'lists all drafts' do
-        FactoryGirl.create_list :post, 3, :draft, developer: developer
-        FactoryGirl.create_list :post, 3, :draft
+        FactoryBot.create_list :post, 3, :draft, developer: developer
+        FactoryBot.create_list :post, 3, :draft
         get :drafts
 
         expect(assigns(:posts).length).to eq(6)

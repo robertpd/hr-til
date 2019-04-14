@@ -5,7 +5,7 @@ describe PostHelper do
     it 'returns a link to twitter' do
       stub_const('ENV', ENV.merge('default_twitter_handle' => 'twitter_handle'))
 
-      @post = FactoryGirl.create(:post)
+      @post = FactoryBot.create(:post)
       @post.slug = '1234'
       @post.save!
 
@@ -15,8 +15,8 @@ describe PostHelper do
     end
 
     it "returns a link to twitter with developer's twitter handle" do
-      developer = FactoryGirl.create(:developer, twitter_handle: 'awesomehandle')
-      @post = FactoryGirl.create(:post, developer: developer)
+      developer = FactoryBot.create(:developer, twitter_handle: 'awesomehandle')
+      @post = FactoryBot.create(:post, developer: developer)
       @post.slug = '1234'
       @post.save!
 

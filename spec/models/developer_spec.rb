@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Developer do
-  let(:developer) { FactoryGirl.build(:developer) }
+  let(:developer) { FactoryBot.build(:developer) }
 
   it 'should have a valid factory' do
     expect(developer).to be_valid
@@ -39,8 +39,8 @@ describe Developer do
   end
 
   it 'should validate username uniqueness' do
-    FactoryGirl.create(:developer, username: developer.username)
-    dup_developer = FactoryGirl.build(:developer, username: developer.username)
+    FactoryBot.create(:developer, username: developer.username)
+    dup_developer = FactoryBot.build(:developer, username: developer.username)
     expect(dup_developer).to_not be_valid
     expect(dup_developer.errors.messages[:username]).to eq ['has already been taken']
   end

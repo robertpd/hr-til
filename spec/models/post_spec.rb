@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Post do
-  let(:post) { FactoryGirl.create(:post) }
+  let(:post) { FactoryBot.create(:post) }
   let(:valid_title) { 'today-i-learned-about-clojure' }
 
   it 'should have a valid factory' do
@@ -88,39 +88,39 @@ describe Post do
 
   context 'it should count its words' do
     it 'with trailing spaces' do
-      post = FactoryGirl.create(:post, body: 'word ' * 150)
+      post = FactoryBot.create(:post, body: 'word ' * 150)
       expect(post.send(:word_count)).to eq 150
     end
 
     it 'with no trailing spaces' do
-      post = FactoryGirl.create(:post, body: ('word ' * 150).strip)
+      post = FactoryBot.create(:post, body: ('word ' * 150).strip)
       expect(post.send(:word_count)).to eq 150
     end
 
     it 'with one word' do
-      post = FactoryGirl.create(:post, body: 'word')
+      post = FactoryBot.create(:post, body: 'word')
       expect(post.send(:word_count)).to eq 1
     end
   end
 
   context 'it should know how many words are available' do
     it 'with trailing spaces' do
-      post = FactoryGirl.create(:post, body: 'word ' * 150)
+      post = FactoryBot.create(:post, body: 'word ' * 150)
       expect(post.send(:words_remaining)).to eq 50
     end
 
     it 'with no trailing spaces' do
-      post = FactoryGirl.create(:post, body: ('word ' * 150).strip)
+      post = FactoryBot.create(:post, body: ('word ' * 150).strip)
       expect(post.send(:words_remaining)).to eq 50
     end
 
     it 'with one word' do
-      post = FactoryGirl.create(:post, body: 'word')
+      post = FactoryBot.create(:post, body: 'word')
       expect(post.send(:words_remaining)).to eq 199
     end
 
     it 'with too many words' do
-      post = FactoryGirl.build(:post, body: 'word ' * 300)
+      post = FactoryBot.build(:post, body: 'word ' * 300)
       expect(post.send(:words_remaining)).to eq(-100)
     end
   end
@@ -128,7 +128,7 @@ describe Post do
   describe '.search' do
     it 'finds by developer' do
       needle = %w(brian jake).map do |author_name|
-        FactoryGirl.create :post, developer: FactoryGirl.create(:developer, username: author_name)
+        FactoryBot.create :post, developer: FactoryBot.create(:developer, username: author_name)
       end.last
 
       expect(described_class.search('jake')).to eq [needle]
@@ -136,7 +136,7 @@ describe Post do
 
     it 'finds by channel' do
       needle = %w(vim ruby).map do |channel_name|
-        FactoryGirl.create :post, channel: FactoryGirl.create(:channel, name: channel_name)
+        FactoryBot.create :post, channel: FactoryBot.create(:channel, name: channel_name)
       end.last
 
       expect(described_class.search('ruby')).to eq [needle]
@@ -144,7 +144,7 @@ describe Post do
 
     it 'finds by title' do
       needle = %w(postgres sql).map do |title|
-        FactoryGirl.create :post, title: title
+        FactoryBot.create :post, title: title
       end.last
 
       expect(described_class.search('sql')).to eq [needle]
@@ -152,7 +152,7 @@ describe Post do
 
     it 'finds by body' do
       needle = %w(postgres sql).map do |body|
-        FactoryGirl.create :post, body: body
+        FactoryBot.create :post, body: body
       end.last
 
       expect(described_class.search('sql')).to eq [needle]
@@ -160,10 +160,10 @@ describe Post do
 
     it 'ranks matches by title, then developer or channel, then body' do
       posts = [
-        FactoryGirl.create(:post, body: 'needle'),
-        FactoryGirl.create(:post, channel: FactoryGirl.create(:channel, name: 'needle')),
-        FactoryGirl.create(:post, developer: FactoryGirl.create(:developer, username: 'needle')),
-        FactoryGirl.create(:post, title: 'needle')
+        FactoryBot.create(:post, body: 'needle'),
+        FactoryBot.create(:post, channel: FactoryBot.create(:channel, name: 'needle')),
+        FactoryBot.create(:post, developer: FactoryBot.create(:developer, username: 'needle')),
+        FactoryBot.create(:post, title: 'needle')
       ].reverse
 
       ids = described_class.search('needle').pluck(:id)
@@ -172,8 +172,8 @@ describe Post do
     end
 
     it 'breaks ties by post date' do
-      FactoryGirl.create(:post, title: 'older', body: 'needle', created_at: 2.days.ago)
-      FactoryGirl.create(:post, title: 'newer', body: 'needle')
+      FactoryBot.create(:post, title: 'older', body: 'needle', created_at: 2.days.ago)
+      FactoryBot.create(:post, title: 'newer', body: 'needle')
 
       expect(described_class.search('needle').map(&:title)).to eq %w(newer older)
     end
@@ -201,7 +201,7 @@ describe Post do
   context 'publish drafts' do
     describe '.published' do
       it 'cannot create more than one draft per developer' do
-        post = FactoryGirl.create(:post, :draft)
+        post = FactoryBot.create(:post, :draft)
         expect do
           Post.create(post.attributes)
         end.to raise_error(ActiveRecord::RecordNotUnique)
@@ -219,7 +219,7 @@ describe Post do
   context 'slack integration on publication' do
     describe 'new post, published is true' do
       it 'should notify slack' do
-        post = FactoryGirl.build(:post)
+        post = FactoryBot.build(:post)
 
         expect(post).to receive(:notify_slack)
         post.save
@@ -228,7 +228,7 @@ describe Post do
 
     describe 'new post, published is false' do
       it 'should not notify slack' do
-        post = FactoryGirl.build(:post, :draft)
+        post = FactoryBot.build(:post, :draft)
 
         expect(post).to_not receive(:notify_slack)
         post.save
@@ -237,7 +237,7 @@ describe Post do
 
     describe 'existing post, published changes to true' do
       it 'should notify slack' do
-        post = FactoryGirl.create(:post, :draft)
+        post = FactoryBot.create(:post, :draft)
         post.published_at = Time.now
 
         expect(post).to receive(:notify_slack)

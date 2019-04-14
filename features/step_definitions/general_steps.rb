@@ -8,26 +8,26 @@ end
 
 Given(/^a post exists for each of the last (\d+) days$/) do |count|
   Date.today.downto(Date.today - (count.to_i - 1)) do |date|
-    FactoryGirl.create(:post, created_at: date.end_of_day)
+    FactoryBot.create(:post, created_at: date.end_of_day)
   end
 end
 
 Given(/^(\d+) posts exist in (\d+) channels$/) do |posts, channels|
-  channels = FactoryGirl.create_list :channel, channels.to_i
+  channels = FactoryBot.create_list :channel, channels.to_i
   posts.to_i.times do
-    FactoryGirl.create(:post, channel: channels.sample)
+    FactoryBot.create(:post, channel: channels.sample)
   end
 end
 
 When(/^(\d+) posts exist more than thirty days old$/) do |count|
-  FactoryGirl.create_list(:post, count.to_i, :for_last_year)
+  FactoryBot.create_list(:post, count.to_i, :for_last_year)
 end
 
 When(/there are (\d+) authors who (have|have not) authored posts/) do |count, authored|
   count.to_i.times do
-    dev = FactoryGirl.create(:developer)
+    dev = FactoryBot.create(:developer)
     if (authored == "have")
-      FactoryGirl.create(:post, developer: dev)
+      FactoryBot.create(:post, developer: dev)
     end
   end
 end

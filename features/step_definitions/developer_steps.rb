@@ -3,7 +3,7 @@ Given 'I am not already a developer' do
 end
 
 Given 'I am already a developer' do
-  @developer = FactoryGirl.create(:developer, email: 'johnsmith@example.com', username: 'johnsmith')
+  @developer = FactoryBot.create(:developer, email: 'johnsmith@example.com', username: 'johnsmith')
 end
 
 Given 'I am a signed in developer' do
@@ -42,11 +42,11 @@ And 'I am an admin' do
 end
 
 And 'I have a post' do
-  @post = FactoryGirl.create(:post, developer: @developer)
+  @post = FactoryBot.create(:post, developer: @developer)
 end
 
 And 'I have a post with markdown' do
-  FactoryGirl.create(:post, developer: @developer, body: '*emphasis*')
+  FactoryBot.create(:post, developer: @developer, body: '*emphasis*')
 end
 
 And 'I click sign out' do

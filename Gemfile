@@ -35,7 +35,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'figaro'
   gem 'pry-rails'
   gem 'rspec-rails'

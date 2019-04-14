@@ -1,9 +1,9 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :post do
     title 'Web Development'
     body 'Today I learned about web development'
-    developer { FactoryGirl.create(:developer) }
-    channel { FactoryGirl.create(:channel) }
+    developer { FactoryBot.create(:developer) }
+    channel { FactoryBot.create(:channel) }
     published_at Time.now
     content_confirmed_safe true
   end
