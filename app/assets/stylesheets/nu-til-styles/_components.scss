@@ -1,5 +1,5 @@
 article {
-  @include display(flex);
+  display: flex;
 
   a, a:hover {
     color: $nu-blue;
@@ -15,8 +15,8 @@ article {
 
   .copy, aside {
     @include shadow-box();
-    @include display(flex);
-    @include flex-direction(column);
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
 
     footer {
@@ -54,9 +54,9 @@ article {
   }
 
   .copy {
-    @include flex-grow(1);
-    @include flex-shrink(2);
-    @include flex-basis(75%);
+    flex-grow: 1;
+    flex-shrink: 2;
+    flex-basis: 75%;
     overflow-x: auto;
     color: #4e4e4e;
     font-family: 'Noto Serif', serif;
@@ -65,9 +65,9 @@ article {
 
   aside {
     padding: 0px;
-    @include flex-grow(0);
-    @include flex-shrink(2);
-    @include flex-basis(25%);
+    flex-grow: 0;
+    flex-shrink: 2;
+    flex-basis: 25%;
     overflow: auto;
 
     ul {
@@ -101,7 +101,7 @@ article {
     background: image-url("icon_like.png") right center no-repeat;
     background-size: auto 70%;
     background-origin: border-box;
-    @include transition(background-image 0.2s)
+    transition: background-image 0.2s;
   }
 
   a.like:hover, a.like.liked {
@@ -143,7 +143,7 @@ pre.highlight {
 
 @include media($mobile) {
   article {
-    @include flex-wrap(wrap);
+    flex-wrap: wrap;
 
     .copy {
       margin-bottom: 0.5em;
@@ -153,17 +153,17 @@ pre.highlight {
       @include override-shadow-box();
       margin: 1em;
       margin-top: 0em;
-      @include flex-grow(1);
-      @include flex-shrink(2);
-      @include flex-basis(100%);
-      @include flex-wrap(wrap);
+      flex-grow: 1;
+      flex-shrink: 2;
+      flex-basis: 100%;
+      flex-wrap: wrap;
 
       ul {
         padding-right: 0.5em;
         width: 100%;
         display: block;
         margin-left: 0px;
-        @include flex-wrap(wrap);
+        flex-wrap: wrap;
 
         li {
           @include shadow-box();

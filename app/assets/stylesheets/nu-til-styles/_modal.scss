@@ -7,8 +7,8 @@
   $action-color: #477dca !default;
   $dark-gray: #333 !default;
   $light-gray: #ddd !default;
-  $medium-screen: em(640) !default;
-  $large-screen: em(860) !default;
+  $medium-screen: 40em !default;
+  $large-screen: 54em !default;
   $base-font-color: $dark-gray !default;
   $modal-padding: 3em;
   $modal-background: $base-background-color;
@@ -37,7 +37,7 @@
   }
 
   .modal-fade-screen { // overlay
-    @include transition(opacity 0.25s ease);
+    transition: opacity 0.25s ease;
     @include position(fixed, 0);
     background-color: rgba(#000, 0.85);
     opacity: 0;
@@ -65,8 +65,8 @@
     &:after,
     &:before {
       @include position(absolute, 3px 3px 0 50%);
-      @include transform(rotate(45deg));
-      @include size(0.15em 1.5em);
+      transform: rotate(45deg)69;
+      @include size(0.15em, 1.5em);
       background: $modal-close-color;
       content: '';
       display: block;
@@ -79,12 +79,12 @@
     }
 
     &:before {
-      @include transform(rotate(-45deg));
+      transform: rotate(-45deg)69;
     }
   }
 
   .modal-inner {
-    @include transition(opacity 0.25s ease);
+    transition: opacity 0.25s ease;
     background: $modal-background;
     border-radius: $base-border-radius;
     margin-top: 0;
@@ -124,7 +124,7 @@
       color: $base-font-color;
 
       @include media($medium-screen) {
-        @include columns(2 8em);
+        columns: 2 8em;
       }
     }
 

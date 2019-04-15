@@ -7,12 +7,12 @@
     align-items: stretch;
 
     li {
-      @include flex-grow(1);
+      flex-grow: 1;
       position: relative;
       background: lighten($nu-blue-25, 50%);
       border: 1px solid mix($light, $blue, 80%);
       border-left-width: 0px;
-      @include transition(background-color, .1s);
+      transition: background-color, .1s;
 
       .activity_chart_bar {
         position: absolute;
@@ -20,7 +20,7 @@
         bottom: 0;
         left: 0;
         background: $nu-blue;
-        @include transition(background-color, .1s);
+        transition: background-color, .1s;
       }
 
       &:first-child {
@@ -89,17 +89,17 @@
 
   @include media($desktop) {
     .two_column {
-      @include display(flex);
-      @include flex-direction(row);
+      display: flex;
+      flex-direction: row;
       article {
-        @include flex-basis(50%);
+        flex-basis: 50%;
       }
     }
   }
 
   article {
     @include shadow-box();
-    @include flex-direction(column);
+    flex-direction: column;
 
     h3 {
       text-align: center;
@@ -112,19 +112,19 @@
       border-bottom: 1px solid $nu-blue-25;
 
       a {
-        @include display(flex);
-        @include flex-direction(row);
-        @include align-items(center);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
         padding: 0.5em;
 
         b {
-          @include flex-basis(20em);
-          @include flex-grow(1);
+          flex-basis: 20em;
+          flex-grow: 1;
         }
 
         small {
-          @include flex-basis(15em);
-          @include flex-shrink(1);
+          flex-basis: 15em;
+          flex-shrink: 1;
           text-align: right;
           font-size: 0.75em;
           font-style: italic;
