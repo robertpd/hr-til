@@ -5,7 +5,7 @@ header.navigation {
   $base-accent-color: #477DCA !default;
   $dark-gray: #333 !default;
   $large-screen: em(860) !default;
-  
+
   a {
     text-decoration: none;
   }
@@ -288,16 +288,6 @@ header.navigation {
     }
   }
 
-  .sign-up {
-    @include button(flat, $base-accent-color);
-    display: inline;
-    float: right;
-    font-size: 0.8em;
-    margin-top: 1em;
-    padding: 0.75em 1em;
-    text-transform: uppercase;
-  }
-
   // Search bar
 
   .search-bar {
@@ -314,7 +304,7 @@ header.navigation {
       position: relative;
 
       input[type=search] {
-        @include box-sizing(border-box);
+        box-sizing: border-box;
         background: #fff;
         border-radius: $base-border-radius * 2;
         border: $navigation-search-border-gray;
@@ -334,7 +324,6 @@ header.navigation {
       }
 
       button[type=submit] {
-        @include button(flat, $navigation-search-background);
         background-color: $light-gray;
         bottom: 0.3em;
         left: auto;
@@ -362,7 +351,7 @@ header.navigation {
       width: 13em;
 
       input {
-        @include box-sizing(border-box);
+        box-sizing: border-box;
         display: block;
       }
     }
