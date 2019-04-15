@@ -1,5 +1,35 @@
+# Nulogy HR-TIL Readme
+
+# Install
+
+```bash
+bundle install
+cp config/database.yml.sample config/database.yml
+cp config/application.yml.sample config/application.yml 
+# change file contents as required for your environment
+rake db:setup
+```
+
+# Run
+```bash
+rails s
+```
+
+# Run specs
+```bash
+rspec spec
+rake cucumber
+```
+
+# QA & Production
+- [QA](https://nulogytil-qa.herokuapp.com/) 
+- [Production](http://til-engineering.nulogy.com) 
+
+# Original HR-TIL
+
 # HR-TIL
 
+[![Circle CI](https://circleci.com/gh/hashrocket/hr-til.svg?style=svg)](https://circleci.com/gh/hashrocket/hr-til) [![Code Climate](https://codeclimate.com/github/hashrocket/hr-til/badges/gpa.svg)](https://codeclimate.com/github/hashrocket/hr-til)
 [![Circle CI](https://circleci.com/gh/hashrocket/hr-til.svg?style=svg)](https://circleci.com/gh/hashrocket/hr-til) [![Code Climate](https://codeclimate.com/github/hashrocket/hr-til/badges/gpa.svg)](https://codeclimate.com/github/hashrocket/hr-til) [![Issue Count](https://codeclimate.com/github/hashrocket/hr-til/badges/issue_count.svg)](https://codeclimate.com/github/hashrocket/hr-til)
 
 > TIL is a project by Hashrocket to catalogue the sharing & accumulation of
@@ -20,7 +50,6 @@ $ git clone https://github.com/hashrocket/hr-til
 $ cd hr-til
 $ bundle install
 $ rake db:setup
-$ cp config/database.yml.sample config/database.yml
 $ cp config/application.yml{,.example}
 $ rails s
 ```
@@ -35,10 +64,6 @@ permitted_domains: 'hashrocket.com|hshrckt.com'
 
 With this in place, you can visit '/admin' and log in with an email address from
 the domain you've allowed.
-
-### Running specs
-- Acceptance specs: `rake cucumber`
-- Integration specs: `rspec spec`
 
 ### Dependencies
 
@@ -77,3 +102,4 @@ request if you have something to add.
 ### License
 
 TIL is released under the [MIT License](http://www.opensource.org/licenses/MIT).
+
