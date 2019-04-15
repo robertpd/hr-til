@@ -6,6 +6,7 @@
 !/log/.keep
 /tmp
 /config/application.yml
+/config/database.yml
 .DS_Store
 .idea/*
 
